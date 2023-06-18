@@ -40,7 +40,6 @@ export default {
           sm:text-left
           text-ternary-dark
           dark:text-primary-light
-          uppercase
         "
       >
         Hi, Iam Stoman
