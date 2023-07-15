@@ -42,7 +42,7 @@ export default {
           dark:text-primary-light
         "
       >
-        Hi, Iam Stoman
+        Hi, I'm Quang Nguyen
       </h1>
       <p
         class="
@@ -57,11 +57,11 @@ export default {
           text-gray-400
         "
       >
-        A Full-Stack Developer & Design Enthusiast
+        A creative Software Engineer
       </p>
       <div class="flex justify-center sm:block">
         <a
-          href="/Stoman-Resume.pdf"
+          href="/Software-Engineer_Nguyen_Dinh_Bao_Quang.pdf"
           download=""
           class="
             flex

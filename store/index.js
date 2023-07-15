@@ -90,15 +90,9 @@ export const state = () => ({
       socialSharings: [
         {
           id: uuidv4(),
-          name: "Twitter",
-          icon: "twitter",
-          url: "https://twitter.com/realstoman",
-        },
-        {
-          id: uuidv4(),
           name: "LinkedIn",
           icon: "linkedin",
-          url: "https://linkedin.com/in/realstoman",
+          url: "https://www.linkedin.com/in/quang-nguyen-513774195/",
         },
         {
           id: uuidv4(),
@@ -530,15 +524,9 @@ export const state = () => ({
       socialSharings: [
         {
           id: uuidv4(),
-          name: "Twitter",
-          icon: "twitter",
-          url: "https://twitter.com/realstoman",
-        },
-        {
-          id: uuidv4(),
           name: "LinkedIn",
           icon: "linkedin",
-          url: "https://linkedin.com/in/realstoman",
+          url: "https://www.linkedin.com/in/quang-nguyen-513774195/",
         },
         {
           id: uuidv4(),
@@ -604,16 +592,19 @@ export const state = () => ({
         {
           id: uuidv4(),
           title: "Phone",
-          details: "555 8888 888",
+          details: "+84 705248038",
         },
       ],
       technologies: [
         "HTML",
         "CSS",
         "JavaScript",
-        "Nuxt.js",
-        "TailwindCSS",
-        "AdobeXD",
+        "Python",
+        "Django/Flask",
+        "VueJS",
+        "NuxtJS",
+        "Ruby",
+        "Go"
       ],
       projectDetails: [
         {
@@ -640,15 +631,9 @@ export const state = () => ({
       socialSharings: [
         {
           id: uuidv4(),
-          name: "Twitter",
-          icon: "twitter",
-          url: "https://twitter.com/realstoman",
-        },
-        {
-          id: uuidv4(),
           name: "LinkedIn",
           icon: "linkedin",
-          url: "https://linkedin.com/in/realstoman",
+          url: "https://www.linkedin.com/in/quang-nguyen-513774195/",
         },
         {
           id: uuidv4(),
@@ -722,27 +707,21 @@ export const state = () => ({
   socialProfiles: [
     {
       id: uuidv4(),
-      name: "GitHub",
-      icon: "github",
-      url: "https://github.com/realstoman",
+      name: "Email",
+      icon: "email",
+      url: "ndinhbaoquang@gmail.com",
     },
     {
       id: uuidv4(),
-      name: "Twitter",
-      icon: "twitter",
-      url: "https://twitter.com/realstoman",
+      name: "GitHub",
+      icon: "github",
+      url: "https://github.com/quangnguyen3499",
     },
     {
       id: uuidv4(),
       name: "Linkedin",
       icon: "linkedin",
-      url: "https://linkedin.com/in/realstoman",
-    },
-    {
-      id: uuidv4(),
-      name: "Youtube",
-      icon: "youtube",
-      url: "https://youtube.com/c/realstoman",
+      url: "https://www.linkedin.com/in/quang-nguyen-513774195/",
     },
   ],
   categories: [
@@ -753,19 +732,14 @@ export const state = () => ({
     },
     {
       id: uuidv4(),
+      value: "tool",
+      name: "Application Tool",
+    },
+    {
+      id: uuidv4(),
       value: "mobile",
       name: "Mobile Applicaiton",
-    },
-    {
-      id: uuidv4(),
-      value: "ui-ux",
-      name: "UI/UX Design",
-    },
-    {
-      id: uuidv4(),
-      value: "branding",
-      name: "Branding & Animations",
-    },
+    }
   ],
 });
 
