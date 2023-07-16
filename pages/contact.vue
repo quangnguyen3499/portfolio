@@ -25,10 +25,10 @@ export default {
     };
   },
   mounted() {
-    feather.replace();
+    // feather.replace();
   },
   updated() {
-    feather.replace();
+    // feather.replace();
   },
 };
 </script>

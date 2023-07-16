@@ -34,7 +34,7 @@ export default {
     },
   },
   mounted() {
-    feather.replace();
+    // feather.replace();
   },
 };
 </script>
@@ -88,7 +88,7 @@ export default {
         "
       >
         <div class="flex justify-between gap-2">
-          <span
+          <!-- <span
             class="
               hidden
               sm:block
@@ -104,7 +104,7 @@ export default {
               data-feather="search"
               class="text-ternary-dark dark:text-ternary-light"
             ></i>
-          </span>
+          </span> -->
           <input
             v-model="searchProject"
             class="

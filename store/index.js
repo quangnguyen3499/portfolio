@@ -194,15 +194,9 @@ export const state = () => ({
       socialSharings: [
         {
           id: uuidv4(),
-          name: "Twitter",
-          icon: "twitter",
-          url: "https://twitter.com/realstoman",
-        },
-        {
-          id: uuidv4(),
           name: "LinkedIn",
           icon: "linkedin",
-          url: "https://linkedin.com/in/realstoman",
+          url: "https://www.linkedin.com/in/quang-nguyen-513774195/",
         },
         {
           id: uuidv4(),
@@ -304,15 +298,9 @@ export const state = () => ({
       socialSharings: [
         {
           id: uuidv4(),
-          name: "Twitter",
-          icon: "twitter",
-          url: "https://twitter.com/realstoman",
-        },
-        {
-          id: uuidv4(),
           name: "LinkedIn",
           icon: "linkedin",
-          url: "https://linkedin.com/in/realstoman",
+          url: "https://www.linkedin.com/in/quang-nguyen-513774195/",
         },
         {
           id: uuidv4(),
@@ -414,15 +402,9 @@ export const state = () => ({
       socialSharings: [
         {
           id: uuidv4(),
-          name: "Twitter",
-          icon: "twitter",
-          url: "https://twitter.com/realstoman",
-        },
-        {
-          id: uuidv4(),
           name: "LinkedIn",
           icon: "linkedin",
-          url: "https://linkedin.com/in/realstoman",
+          url: "https://www.linkedin.com/in/quang-nguyen-513774195/",
         },
         {
           id: uuidv4(),

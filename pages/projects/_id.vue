@@ -14,10 +14,10 @@ export default {
     },
   },
   mounted() {
-    feather.replace();
+    // feather.replace();
   },
   updated() {
-    feather.replace();
+    // feather.replace();
   },
   components: { ProjectRelatedProjects },
 };
@@ -47,7 +47,7 @@ export default {
         <div class="flex">
           <div class="flex items-center mr-10">
             <i
-              data-feather="clock"
+              :data-feather="clock"
               class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
             ></i>
             <span
@@ -63,7 +63,7 @@ export default {
           </div>
           <div class="flex items-center">
             <i
-              data-feather="tag"
+              :data-feather="tag"
               class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
             ></i>
             <span

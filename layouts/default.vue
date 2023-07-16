@@ -45,7 +45,7 @@ export default {
     };
   },
   mounted() {
-    feather.replace();
+    // feather.replace();
   },
   components: { AppFooter, BackToTop, AppHeader },
 };

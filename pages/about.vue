@@ -5,10 +5,10 @@ export default {
   name: "About",
   scrollToTop: true,
   mounted() {
-    feather.replace();
+    // feather.replace();
   },
   updated() {
-    feather.replace();
+    // feather.replace();
   },
 };
 </script>

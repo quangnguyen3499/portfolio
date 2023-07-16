@@ -10,7 +10,7 @@ export default {
     };
   },
   mounted() {
-    feather.replace();
+    // feather.replace();
   },
   methods: {},
 };
@@ -67,12 +67,12 @@ export default {
                 <h5 class="text-primary-dark dark:text-primary-light text-xl">
                   What project are you looking for?
                 </h5>
-                <button
+                <!-- <button
                   class="px-4 text-primary-dark dark:text-primary-light"
                   @click="showModal()"
                 >
-                  <i data-feather="x" class="w-8 sm:w-12"></i>
-                </button>
+                  <i :data-feather="x" class="w-8 sm:w-12"></i>
+                </button> -->
               </div>
               <div class="modal-body p-5 w-full h-full">
                 <form

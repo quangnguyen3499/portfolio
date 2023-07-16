@@ -15,10 +15,10 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.updateScrollPosition);
-    feather.replace();
+    // feather.replace();
   },
   updated() {
-    feather.replace();
+    // feather.replace();
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.updateScrollPosition);

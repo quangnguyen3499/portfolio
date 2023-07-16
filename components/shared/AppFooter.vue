@@ -12,10 +12,10 @@ export default {
     ...mapState(["socialProfiles"]),
   },
   mounted() {
-    feather.replace();
+    // feather.replace();
   },
   updated() {
-    feather.replace();
+    // feather.replace();
   },
 };
 </script>
