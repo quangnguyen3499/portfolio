@@ -1,30 +1,36 @@
 import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue';
 import App from './App.vue'
 
-import AnimateOnVisible from "./components/AnimateOnVisible.vue"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import VueParallaxJs from 'vue-parallax-js'
+import VueScrollTo from 'vue-scrollto'
+import VueRouter from 'vue-router'
+import VTooltip from 'v-tooltip'
 
-Vue.use(BootstrapVue)
+var VueCookie = require('vue-cookie');
 
-import VueTimeline from "@growthbunker/vuetimeline";
+Vue.use(VTooltip)
+Vue.use(VueRouter)
+Vue.use(VueScrollTo)
+Vue.use(VueCookie);
+Vue.use(VueParallaxJs)
 
-Vue.use(VueTimeline);
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCopyright} from '@fortawesome/free-solid-svg-icons'
-import { faFacebookSquare, faInstagramSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-library.add(faCopyright, faFacebookSquare, faInstagramSquare, faLinkedin, faGithubSquare)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.component('AnimateOnVisible', AnimateOnVisible)
 Vue.config.productionTip = false
 
+const routes = [
+  { path: '/'}
+]
+
+const router = new VueRouter({
+  mode:'history',
+  routes // short for `routes: routes`
+})
+
 new Vue({
+  created () {
+    AOS.init()
+  },
+  router,
   render: h => h(App),
 }).$mount('#app')
-
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import './styles/global.scss'
