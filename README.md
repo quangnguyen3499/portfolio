@@ -1,109 +1,85 @@
-# Nuxt.js & TailwindCSS Portfolio - With Dark Mode
+<h1 align="center">VueJS portfolio template</h1>
 
-A simple portfolio starter theme built with Nuxt.js and Tailwind CSS. This is the Nuxt version of the [Vuejs-&-TailwindCSS-Portfolio](https://github.com/realstoman/vuejs-tailwindcss-portfolio)
+> Portfolio template using VueJs framework, CosmicJS API and Bootstrap
 
-![Nuxtjs-TailwindCSS-Portfolio](https://user-images.githubusercontent.com/16396664/140901794-14c1db27-99b9-46d4-a954-4bb37c32ead4.JPG)
+<p align="center"><strong> Live demo with my personnal data <a href="https://hugobollon.me">here</a> ! </strong></p>
 
-## Demo URL
+<img align="center" src="doc/portfolio-vuejs_demo.gif" alt="portfolio-vuejs preview"></img>
 
-[https://nuxtjs-tailwindcss-portfolio.netlify.com](https://nuxtjs-tailwindcss-portfolio.netlify.com)
+---
 
-## Other versions of this project
+## Table of Contents
 
-- Vue.js Version: [https://github.com/realstoman/vuejs-tailwindcss-portfolio](https://github.com/realstoman/vuejs-tailwindcss-portfolio)
-- React Version: [https://github.com/realstoman/react-tailwindcss-portfolio](https://github.com/realstoman/react-tailwindcss-portfolio)
-- Next.js Version: [https://github.com/realstoman/nextjs-tailwindcss-portfolio](https://github.com/realstoman/nextjs-tailwindcss-portfolio)
+- [Features](#features)
+- [Setup](#project-setup)
+- [Edit Content](#how-to-edit-content)
+- [Author](#author)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
 
 ## Features
+- Builded with VueJs framework ✨
+- One page layout ✨
+- Material design ✨
+- Bootstrap 4.5 & SCSS ✨
+- Responsive ✨
+- Animated layout ✨
+- Content managed with CosmicJS API ✨
 
-- Simple and responsive design
-- [Nuxt.js](https://nuxtjs.org) with [Vuex](https://vuex.vuejs.org/)
-- [Tailwind CSS v2](https://tailwindcss.com)
-- Theme Switcher with Dark Mode
-- Vuex for state management
-- Reusable components
-- Projects filter by category
-- Projects search by title
-- Vue transitions
-- Counter
-- Projects carousel
-- Smooth scroll
-- Dynamic forms
-- Back to top button
-- Download file button
-
-### To Contribute to this project, read the [Contribution Guidlines](https://github.com/realstoman/nuxtjs-tailwindcss-portfolio/blob/main/CONTRIBUTING.md)
-
-## Setup
-
-1. First of all, make sure you have Node JS installed. If you don't have it:
-
-- [Download it from nodejs.org](https://nodejs.org)
-- [Install it using NVM ](https://github.com/nvm-sh/nvm)
-- If you're on Mac, Homebrew is a good option too:
-
+## Project setup
 ```
-brew install node
+npm install
 ```
-
-2. Clone the repo:
-
+### Compiles and hot-reloads for development
 ```
-git clone https://github.com/realstoman/nuxtjs-tailwindcss-portfolio.git
+npm run serve
 ```
-
-3. Open the project folder:
-
+### Compiles and minifies for production
 ```
-cd nuxtjs-tailwindcss-portfolio
+npm run build
+```
+### Lints and fixes files
+```
+npm run lint
+```
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## How to edit content
+This template have a CMS support with CosmicJS. You can easily put your content there by creating and linking your CosmicJS account. 
+
+In order to customize your portfolio, you must create a CosmicJS account and a new fresh bucket on it. Once done, you must update credentials of the **.env** file.
+
+To do this, you just have to modify the variables contained in the ENV file (API token, bucket slug and read key).
+
+```env
+# CosmicJS 
+VUE_APP_COSMICJS_TOKEN=" "
+VUE_APP_COSMICJS_BUCKET_SLUG=" "
+VUE_APP_COSMICJS_BUCKET_READ_KEY=" "
 ```
 
-4. Install packages and dependencies:
+After that, you need to create the object type and data we will use. To do that properly and easily, you can import the json file, located [inside the data folder of this repo](https://github.com/hbollon/portfolio-vuejs/blob/master/data/portfolio-vuejs_import.json), by accessing import/export settings inside your bucket settings page.
 
-```
-yarn
-```
+Now, you can customize it with your data through CosmicJS interface!
+## Author
 
-4. NOTE: If you don't have yarn installed, you can install it globally using npm:
+👤 **Hugo Bollon**
 
-```
-npm install --global yarn
-```
+* Github: [@hbollon](https://github.com/hbollon)
+* LinkedIn: [@Hugo Bollon](https://www.linkedin.com/in/hugobollon/)
+* Portfolio: [hugobollon.me](https://www.hugobollon.me)
 
-5. Start a local dev server at `http://localhost:3000`:
+## 🤝 Contributing
 
-```
-yarn dev
-```
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/hbollon/portfolio-vuejs/issues). 
 
-## For production build and generating static files:
+## Show your support
 
-##### Build for production and launch server:
+Give a ⭐️ if this project helped you!
 
-```
-yarn build
-```
+## 📝 License
 
-```
-yarn start
-```
-
-##### Generate static project:
-
-```
-yarn generate
-```
-
-## Notes
-
-- Always run `yarn install` after pulling new changes
-- I'll be constantly updating this repo as I'll be adding more sections to it, so please always check the projects section of this repo to see what tasks are under todo and in progress
-- Coming Soon [I'll be doing a screencast](https://www.youtube.com/realstoman). Soon I'll be uploading a video to my YouTube channel where I'll be going through the process of creating this portoflio
-- Illustrations from [unDraw](https://undraw.co) and [Freepik](https://freepik.com)
-- Images from [Unsplash](https://unsplash.com)
-- Feel free to use it as your own portfolio
-- Contributions are welcome
-
-### License
-
-[MIT](https://github.com/realstoman/nuxtjs-tailwindcss-portfolio/blob/main/LICENSE)
+This project is under [MIT](https://github.com/hbollon/portfolio-vuesjs/blob/master/LICENSE) license.
