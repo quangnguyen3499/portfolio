@@ -25,12 +25,6 @@
             </button>
             <button
               class="btn btn-outline-secondary mx-2"
-              @click="open('behance')"
-            >
-              <i class="fab fa-behance"></i>
-            </button>
-            <button
-              class="btn btn-outline-secondary mx-2"
               @click="open('resume')"
             >
               <i class="fa fa-file"></i>
@@ -51,7 +45,6 @@ export default {
     return {
       linkedin: info.links.linkedin,
       github: info.links.github,
-      behance: info.links.behance,
       resume: info.links.resume,
     };
   },
@@ -63,9 +56,6 @@ export default {
           break;
         case "github":
           window.open(this.github, "_blank");
-          break;
-        case "behance":
-          window.open(this.behance, "_blank");
           break;
         case "resume":
           window.open(this.resume, "_blank");

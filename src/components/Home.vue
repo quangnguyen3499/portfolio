@@ -17,12 +17,13 @@
           <span
             class="home-title"
             :class="{ pgray: !nightMode, 'text-light': nightMode }"
-            >Welcome to my portfolio!</span
+            >I'm Quang Nguyen, <br> a Software Engineer!</span
           >
           <div>
             <p v-html="description"></p>
           </div>
           <div class="text-center pb-4">
+            <b>Contact me</b>
             <button
               class="btn btn-outline-secondary mx-2 "
               @click="open('linkedin')"
@@ -36,13 +37,6 @@
               v-tooltip.bottom="'GitHub'"
             >
               <i class="fab fa-github"></i>
-            </button>
-            <button
-              class="btn btn-outline-secondary mx-2"
-              @click="open('behance')"
-              v-tooltip.bottom="'behance'"
-            >
-              <i class="fab fa-behance"></i>
             </button>
             <button
               class="btn btn-outline-secondary mx-2"
@@ -80,7 +74,6 @@ export default {
       name: info.name,
       linkedin: info.links.linkedin,
       github: info.links.github,
-      behance: info.links.behance,
       resume: info.links.resume
     };
   },
@@ -92,9 +85,6 @@ export default {
           break;
         case "github":
           window.open(this.github, "_blank");
-          break;
-        case "behance":
-          window.open(this.behance, "_blank");
           break;
         case "resume":
           window.open(this.resume, "_blank");
