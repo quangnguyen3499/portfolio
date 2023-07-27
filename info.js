@@ -41,16 +41,28 @@ let info = {
   ],
   experience: [
     {
-      name: "Rikai Technology",
+      name: "Saigon Technology",
       place: "Da Nang, Viet Nam",
-      date: "Sep 2020 - Wed 2020",
-      position: "Internship Web Developer",
-      description:
-        "",
+      date: "Nov 2022 - Present",
+      position: "Web Developer",
+      description: "",
       skills: [
-        "HTML5", "CSS3", "Bootstrap", "JQuery", "JavaSript",
-        "TypeSript", "Ruby", "Ruby On Rails", "React Native",
-        "Redux", "Firebase", "MySQL"
+        "Python", "Django", "Django Rest Framework",
+        "Flask", "Celery", "Apache Kafka", "RabbitMQ",
+        "AWS", "ElasticSearch", "Docker", "Apache Superset",
+        "MySQL", "PostgreSQL"
+      ]
+    },
+    {
+      name: "Madison Technology",
+      place: "Da Nang, Viet Nam",
+      date: "Apr, 2022 - Oct, 2022",
+      position: "Web Developer",
+      description: "",
+      skills: [
+        "Python", "Django", "Django Rest Framework",
+        "Apache Kafka", "Go", "Gin", "AWS", "Docker",
+        "MySQL", "PostgreSQL"
       ]
     },
     {
@@ -67,54 +79,57 @@ let info = {
       ]
     },
     {
-      name: "Madison Technology",
+      name: "Rikai Technology",
       place: "Da Nang, Viet Nam",
-      date: "Apr, 2022 - Oct, 2022",
-      position: "Web Developer",
-      description: "creating apps and web UI, Creating Interactive prototypes, Low fidelity and UX researches",
+      date: "Sep 2020 - Wed 2020",
+      position: "Internship Developer",
+      description:
+        "",
       skills: [
-        "Python", "Django", "Django Rest Framework",
-        "Apache Kafka", "Go", "Gin", "AWS", "Docker",
-        "MySQL", "PostgreSQL"
+        "HTML5", "CSS3", "Bootstrap", "JQuery", "JavaSript",
+        "TypeSript", "Ruby", "Ruby On Rails", "React Native",
+        "Redux", "Firebase", "MySQL"
       ]
-    },
-    {
-      name: "Saigon Technology",
-      place: "Da Nang, Viet Nam",
-      date: "Nov 2022 - Present",
-      position: "Intermediate Web Developer",
-      description: "part of team include project managers and developers to create technically feasible design, creating 95% of CRM of the company ,creating user experience and interface using adobe XD for best user solution ,finishing 80% of tasks before the target ",
-      skills: [
-        "Python", "Django", "Django Rest Framework",
-        "Flask", "Celery", "Apache Kafka", "RabbitMQ",
-        "AWS", "ElasticSearch", "Docker", "Apache Superset",
-        "MySQL", "PostgreSQL"
-      ]
-    },
+    }
   ],
   skills: [
     {
-      title: "UX/UI Design",
-      info: ["Figma", "Illustrator", "XD", "Photoshop", "Gimp"],
-      icon: "fa fa-pencil-square-o"
-    },
-    {
-      title: "Language",
+      title: "Languages",
       info: [
-        "Python","Javascript","TypeScript","Java","C#"],
+        "Python", "Javascript", "TypeScript"],
       icon: "fa fa-code"
     },
     {
       title: "Front-end",
       info: [
-        "HTML5","CSS3","Bootstrap3","Es6"],
+        "HTML5", "CSS3", "Bootstrap", "ES6", "JQuery"],
       icon: "fa fa-cubes"
     },
     {
-      title: "web technologies",
-      info: ["Vue", "React", "Node"],
+      title: "Frameworks",
+      info: ["Django", "Flask", "VueJS", "ReactJS", "NodeJS"],
       icon: "fas fa-laptop-code"
     },
+    {
+      title: "Databases",
+      info: ["SQL & NoSQL databases"],
+      icon: "fa fa-database"
+    },
+    {
+      title: "Cloud",
+      info: ["AWS", "GCP"],
+      icon: "fa fa-cloud"
+    },
+    {
+      title: "Mobile",
+      info: ["React Native"],
+      icon: "fa fa-mobile"
+    },
+    {
+      title: "Data Analytic",
+      info: ["Superset", "Tableau"],
+      icon: "fa fa-bar-chart"
+    }
   ],
   portfolio_design: [
     {
