@@ -2,11 +2,6 @@
   <div>
     <nav
       class="navbar navbar-expand-lg navbar-light bg-light fixed-top p-st"
-      :class="{
-        'bg-light': !nightMode,
-        'navbar-blur': navbarConfig.blur,
-        'bg-dark2': nightMode,
-      }"
     >
       <div class="container">
         <a
@@ -14,7 +9,7 @@
           href="/"
           @click.prevent="$emit('scroll', 'home')"
         >
-          <Logo :nightMode="nightMode" />
+          <Logo/>
         </a>
         <button
           class="navbar-toggler"
@@ -37,7 +32,6 @@
                 class="nav-link"
                 href="/about"
                 @click.prevent="$emit('scroll', 'about')"
-                :class="{ 'text-light': nightMode }"
                 >About</a
               >
             </li>
@@ -46,7 +40,6 @@
                 class="nav-link"
                 href="/skills"
                 @click.prevent="$emit('scroll', 'skills')"
-                :class="{ 'text-light': nightMode }"
                 >Skills</a
               >
             </li>
@@ -55,7 +48,6 @@
                 class="nav-link"
                 href="/portfolio"
                 @click.prevent="$emit('scroll', 'portfolio')"
-                :class="{ 'text-light': nightMode }"
                 >Portfolio</a
               >
             </li>
@@ -64,24 +56,8 @@
                 class="nav-link"
                 href="/contact"
                 @click.prevent="$emit('scroll', 'contact')"
-                :class="{ 'text-light': nightMode }"
                 >Contact</a
               >
-            </li>
-            <li class="nav-item ml-2">
-              <a
-                class="nav-link"
-                href="#"
-                @click.prevent="switchMode"
-                :class="{ 'text-light': nightMode }"
-                ><i
-                  :class="{
-                    'fas fa-moon': nightMode,
-                    'far fa-moon': !nightMode,
-                  }"
-                  v-tooltip.bottom="nightMode ? 'Light Mode' : 'Night Mode'"
-                ></i
-              ></a>
             </li>
           </ul>
         </div>
@@ -96,25 +72,13 @@ import info from "../../info";
 
 export default {
   name: "Navbar",
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
-  },
   data() {
     return {
       navbarConfig: info.config.navbar,
-      localNightMode: this.nightMode,
     };
   },
   components: {
     Logo,
-  },
-  methods: {
-    switchMode() {
-      this.localNightMode = !this.localNightMode;
-      this.$emit("nightMode", this.localNightMode);
-    },
   },
 };
 </script>
@@ -122,6 +86,7 @@ export default {
 <style scoped>
 .nav-link {
   font-weight: 500;
+  font-size: 18px;
 }
 .nav-link:hover{
   background-color: rgba(160, 159, 159, 0.336);
@@ -138,12 +103,15 @@ button:hover {
 }
 
 nav {
-  border-bottom: 1px solid rgba(160, 159, 159, 0.336);
   position: fixed !important;
 }
 
 .navbar-blur {
   background-color: #ffffff7e;
   backdrop-filter: blur(12px);
+}
+
+.bg-light {
+  background: linear-gradient(181.2deg, rgb(181, 239, 249) 10.5%, rgb(254, 254, 254) 86.8%);
 }
 </style>

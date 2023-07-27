@@ -1,13 +1,8 @@
 <template>
   <div
     class="py-4 p-st"
-    :class="{
-      'bg-light': !nightMode,
-      'bg-dark2': nightMode,
-      'text-light': nightMode,
-    }"
   >
-    <div class="container">
+    <!-- <div class="container">
       <div
         class="text-center"
         data-aos="fade"
@@ -16,16 +11,16 @@
       >
         <span
           class="title text-center"
-          :class="{ pgray: !nightMode, 'text-light': nightMode }"
+          :class="pgray"
           >Projects.</span
         >
       </div>
       <hr
         width="50%"
-        :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
+        :class="pgray"
       />
 
-      <vue-tabs :activeTextColor="!nightMode ? '#535A5E' : '#dfdfdf'">
+      <vue-tabs :activeTextColor="#535A5E">
         <div class="row">
           <div
             class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
@@ -37,7 +32,6 @@
               :portfolio="portfolio"
               @show="showModalFn"
               data-aos="fade-up"
-              :nightMode="nightMode"
               data-aos-offset="100"
               data-aos-delay="10"
               data-aos-duration="500"
@@ -51,14 +45,13 @@
           <button class="btn" @click.prevent="showMore">{{ showBtn }}</button>
         </div>
       </vue-tabs>
-    </div>
+    </div> -->
     <transition name="modal">
       <Modal
         :showModal="showModal"
         @close="closeModal"
         v-if="showModal"
         :portfolio="modal_info"
-        :nightMode="nightMode"
       />
     </transition>
     <transition name="modal">
@@ -67,7 +60,6 @@
         @close="closeModal"
         v-if="showDesignModal"
         :portfolio="design_modal_info"
-        :nightMode="nightMode"
       />
     </transition>
   </div>
@@ -96,11 +88,6 @@ export default {
     VueperSlides,
     VueperSlide,
     DesignModal,
-  },
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
   },
   data() {
     return {

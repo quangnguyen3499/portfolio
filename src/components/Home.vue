@@ -1,6 +1,5 @@
 <template>
   <div
-    :class="{ 'bg-white': !nightMode, 'bg-dark': nightMode }"
     class="pt-5 p-st"
   >
     <div
@@ -16,7 +15,6 @@
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 pt-5">
           <span
             class="home-title"
-            :class="{ pgray: !nightMode, 'text-light': nightMode }"
             >I'm Quang Nguyen, <br> a Software Engineer!</span
           >
           <div>
@@ -61,11 +59,6 @@ export default {
   name: "Home",
   components: {
     Wave,
-  },
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
   },
   data() {
     return {

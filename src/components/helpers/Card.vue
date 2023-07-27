@@ -2,11 +2,7 @@
   <div class="my-3 mx-3">
     <div
       class="card smcard"
-      :class="{
-        'pcard-dark': nightMode,
-        pcard: !nightMode,
-        'bg-dark3': nightMode,
-      }"
+      :class="pcard-dark"
     >
       <div style="height: 180px;">
         <img
@@ -23,7 +19,6 @@
               class="badge mr-2 mb-2 "
               v-for="tech in portfolio.technologies"
               :key="tech"
-              :class="{ 'bg-dark4': nightMode }"
               >{{ tech }}</span
             >
           </div>
@@ -65,9 +60,6 @@ export default {
   props: {
     portfolio: {
       type: Object,
-    },
-    nightMode: {
-      type: Boolean,
     },
   },
   methods: {

@@ -1,11 +1,6 @@
 <template>
   <div
     class="py-4 p-st"
-    :class="{
-      'bg-light': !nightMode,
-      'bg-dark2': nightMode,
-      'text-light': nightMode,
-    }"
   >
     <div class="container">
       <div
@@ -16,13 +11,11 @@
       >
         <span
           class="title text-center"
-          :class="{ pgray: !nightMode, 'text-light': nightMode }"
           >Contact.</span
         >
       </div>
       <hr
         width="50%"
-        :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
       />
       <br />
       <div class="text-center">
@@ -36,13 +29,8 @@
             type="text"
             name="user_name"
             v-model="name"
-            placeholder="name"
+            placeholder="Name"
             class="pinput"
-            :class="{
-              pgray: !nightMode,
-              'pgray-dark': nightMode,
-              'text-light': nightMode,
-            }"
             style="transition-delay: 0.2s"
           />
         </div>
@@ -57,13 +45,8 @@
             type="email"
             name="user_email"
             v-model="email"
-            placeholder="email"
+            placeholder="Email"
             class="pinput"
-            :class="{
-              pgray: !nightMode,
-              'pgray-dark': nightMode,
-              'text-light': nightMode,
-            }"
             style="transition-delay: 0.4s"
           />
         </div>
@@ -77,14 +60,9 @@
           <textarea
             name="message"
             v-model="text"
-            placeholder="message"
+            placeholder="Message"
             class="pinput"
             rows="4"
-            :class="{
-              pgray: !nightMode,
-              'pgray-dark': nightMode,
-              'text-light': nightMode,
-            }"
             style="transition-delay: 0.6s"
           ></textarea>
         </div>
@@ -121,11 +99,6 @@ export default {
   name: "Contact",
   components: {
     Snackbar,
-  },
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
   },
   data() {
     return {
@@ -215,7 +188,7 @@ export default {
   padding: 10px;
   width: 50%;
   transition: all 1s;
-  background-color: #b3b3cc;
+  background-color: #dedeeb;
 }
 
 .btn {

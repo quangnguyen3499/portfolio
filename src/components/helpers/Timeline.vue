@@ -34,13 +34,17 @@
                 </div>
                 <div class="px-2 date">{{ e.date }}</div>
                 <div class="px-2 pb-2 pt-2" style="text-align: justify;">
-                  {{ e.description }}
+                  <p
+                    v-for="d in e.description"
+                    :key="d"
+                  >
+                    {{ d }}
+                  </p>
                 </div>
                 <span
                   class="mx-2 badge p-2 mb-2"
                   v-for="s in e.skills"
                   :key="s"
-                  :class="{ 'bg-dark2': nightMode }"
                   >{{ s }}</span
                 >
                 <p class="m-2"></p>
@@ -59,9 +63,6 @@ export default {
   props: {
     data: {
       type: Object,
-    },
-    nightMode: {
-      type: Boolean,
     },
   },
 };
@@ -84,9 +85,10 @@ export default {
 }
 
 .badge {
-  background-color: #bbd4dd;
+  background-color: #c1d6ed;
   transition: all 0.5s;
   font-weight: 500;
+  font-size: 14px;
 }
 
 .date {
@@ -115,11 +117,11 @@ ul.timeline > li {
 }
 ul.timeline > li:before {
   content: " ";
-  background: #8585ad;
+  background: #6de966;
   display: inline-block;
   position: absolute;
   border-radius: 50%;
-  border: 2px solid #8585ad;
+  border: 2px solid #6de966;
   left: 20px;
   width: 25px;
   height: 25px;

@@ -1,11 +1,6 @@
 <template>
   <div
     class="py-4 p-st"
-    :class="{
-      'bg-light': !nightMode,
-      'bg-dark2': nightMode,
-      'text-light': nightMode,
-    }"
   >
     <div class="container">
       <div
@@ -16,20 +11,17 @@
       >
         <span
           class="title text-center"
-          :class="{ pgray: !nightMode, 'text-light': nightMode }"
           >About Me.</span
         >
       </div>
       <hr
         width="50%"
-        :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
       />
-      <div class="row">
-        <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
-          <Timeline :data="education" :nightMode="nightMode" />
+      <div class="row">        <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
+          <Timeline :data="education"/>
         </div>
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
-          <Timeline :data="experience" :nightMode="nightMode" />
+          <Timeline :data="experience"/>
         </div>
       </div>
     </div>
@@ -44,11 +36,6 @@ export default {
   name: "About",
   components: {
     Timeline,
-  },
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
   },
   data() {
     return {

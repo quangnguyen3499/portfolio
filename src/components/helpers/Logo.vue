@@ -2,7 +2,6 @@
   <div class="logo-div">
     <span
       class="logo-title-name"
-      :class="{ pgray: !nightMode, 'text-light': nightMode }"
       >{{ name }}</span
     >
     <span class="logo-title-dot pblue">{{ dot }}</span>
@@ -14,11 +13,6 @@ import info from "../../../info";
 
 export default {
   name: "Logo",
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
-  },
   data() {
     return {
       name: info.logo_name,

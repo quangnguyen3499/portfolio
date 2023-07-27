@@ -1,13 +1,13 @@
 <template>
-  <div id="app" :class="{ 'text-dark': !nightMode, 'text-light': nightMode }">
-    <Navbar @scroll="scrollTo" @nightMode="switchMode" :nightMode="nightMode" />
+  <div id="app">
+    <Navbar @scroll="scrollTo" />
     <div class="parent">
-      <Home :nightMode="nightMode" />
-      <About id="about" :nightMode="nightMode" />
-      <Skills id="skills" :nightMode="nightMode" />
-      <Portfolio id="portfolio" :nightMode="nightMode" />
-      <Contact id="contact" :nightMode="nightMode" />
-      <Footer :nightMode="nightMode" />
+      <Home/>
+      <About id="about"/>
+      <Skills id="skills"/>
+      <Portfolio id="portfolio"/>
+      <Contact id="contact"/>
+      <Footer/>
     </div>
   </div>
 </template>
@@ -36,14 +36,8 @@ export default {
   },
   data() {
     return {
-      nightMode: false,
       config: info.config,
     };
-  },
-  created() {
-    if (this.config.use_cookies) {
-      this.nightMode = this.$cookie.get("nightMode") === "true" ? true : false;
-    }
   },
   mounted() {
     ["about", "contact", "skills", "portfolio"].forEach((l) => {
@@ -54,12 +48,6 @@ export default {
     });
   },
   methods: {
-    switchMode(mode) {
-      if (this.config.use_cookies) {
-        this.$cookie.set("nightMode", mode);
-      }
-      this.nightMode = mode;
-    },
     scrollTo(ele) {
       if (ele == "home") {
         this.$router.push(`/`).catch(()=>{});
@@ -97,19 +85,11 @@ export default {
 }
 
 .pgray {
-  color: #535a5e;
+  color: #6d7377;
 }
 
 .pblue {
   color: #759CC9;
-}
-
-.bg-dark2 {
-  background-color: #262c30 !important;
-}
-
-.text-light {
-  color: #d3d2d2 !important;
 }
 
 .p-st {

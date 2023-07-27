@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'bg-white': !nightMode, 'bg-dark': nightMode }" class="p-st">
+  <div class="p-st">
     <div class="container py-4">
       <div
         class="text-center"
@@ -9,13 +9,11 @@
       >
         <span
           class="title text-center"
-          :class="{ pgray: !nightMode, 'text-light': nightMode }"
           >Skills.</span
         >
       </div>
       <hr
         width="50%"
-        :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
       />
       <br />
       <div class="row">
@@ -36,7 +34,6 @@
           <div class="title2 pt-2">{{ skill.title }}</div>
           <hr
             width="50%"
-            :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
           />
           <span class="title3">{{ skill.info.join(", ") }}</span>
         </div>
@@ -50,11 +47,6 @@ import info from "../../info";
 
 export default {
   name: "Skills",
-  props: {
-    nightMode: {
-      type: Boolean,
-    },
-  },
   data() {
     return {
       skills: info.skills,

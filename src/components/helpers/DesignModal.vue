@@ -4,14 +4,10 @@
       <div class="modal-wrapper">
         <div
           class="modal-container"
-          :class="{
-            'bg-light': !nightMode,
-            'bg-dark': nightMode,
-            'text-light': nightMode,
-          }"
+          :class="bg-light"
         >
           <div class="title1 px-4 pt-3">
-            <span :class="{ 'text-light': nightMode }">{{
+            <span :class="text-light">{{
               portfolio.name
             }}</span>
             <a
@@ -22,13 +18,13 @@
             ></a>
             <hr
               class="my-1"
-              :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
+              :class="pgray"
             />
           </div>
           <div class="modal-body my-0 pb-0 px-4 pt-0">
             <div
               class="mb-2 date"
-              :class="{ 'text-light': nightMode, pbgray: nightMode }"
+              :class="text-light"
             >
               <span>{{ portfolio.date }} • {{ portfolio.category }}</span>
             </div>
@@ -37,7 +33,6 @@
                 class="badge mr-2 mb-2"
                 v-for="tech in portfolio.technologies"
                 :key="tech"
-                :class="{ 'bg-dark4': nightMode }"
                 >{{ tech }}</span
               >
             </div>
@@ -54,7 +49,7 @@
           <div class="text-center pb-3">
             <hr
               class="mt-1 mb-3"
-              :class="{ pgray: !nightMode, 'bg-secondary': nightMode }"
+              :class="pgray"
             />
             <button class="btn w-25" @click="$emit('close')">close</button>
           </div>
@@ -80,9 +75,6 @@ export default {
     },
     portfolio: {
       type: Object,
-    },
-    nightMode: {
-      type: Boolean,
     },
   },
   created() {
