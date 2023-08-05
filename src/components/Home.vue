@@ -10,7 +10,7 @@
     >
       <div class="row align-items-center">
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 text-center">
-          <img :src="picture" />
+          <img :src="picture" width="60%" class="rounded" />
         </div>
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 pt-5">
           <span
@@ -18,7 +18,7 @@
             >I'm Quang Nguyen, <br> a Software Engineer!</span
           >
           <div>
-            <p v-html="description"></p>
+            <p v-html="description" class="description"></p>
           </div>
           <div class="text-center pb-4">
             <b>Contact me</b>
@@ -90,14 +90,17 @@ export default {
 
 <style scoped>
 .home-title {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 500;
+}
+
+.description {
+  font-size: 16px;
 }
 
 img {
   max-width: 800px;
   max-height: 500px;
-  margin-top: 80px;
   transform: rotateY(180deg);
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav
-      class="navbar navbar-expand-lg navbar-light bg-light fixed-top p-st"
+      class="navbar navbar-expand-lg navbar-light bg-light fixed-top py-0"
     >
       <div class="container">
         <a
@@ -86,7 +86,7 @@ export default {
 <style scoped>
 .nav-link {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
 }
 .nav-link:hover{
   background-color: rgba(160, 159, 159, 0.336);

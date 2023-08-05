@@ -33,7 +33,7 @@
                   {{ e.gpa ? "(" + e.gpa + ")" : "" }}
                 </div>
                 <div class="px-2 date">{{ e.date }}</div>
-                <div class="px-2 pb-2 pt-2" style="text-align: justify;">
+                <div class="px-2 pb-2 pt-2" style="text-align: justify; font-size: 14px;">
                   <p
                     v-for="d in e.description"
                     :key="d"
@@ -70,12 +70,12 @@ export default {
 
 <style scoped>
 .title1 {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
 }
 
 .title2 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
 }
 

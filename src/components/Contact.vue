@@ -162,16 +162,16 @@ export default {
 
 <style scoped>
 .title {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 500;
 }
 .title1 {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 400;
 }
 
 .title2 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
 }
 

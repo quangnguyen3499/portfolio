@@ -106,7 +106,7 @@ a:hover {
 }
 
 .date {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
 }
 .modal-mask {
@@ -180,16 +180,16 @@ a:hover {
 }
 
 .title {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 500;
 }
 .title1 {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 400;
 }
 
 .title2 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
 }
 

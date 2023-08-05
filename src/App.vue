@@ -80,7 +80,7 @@ export default {
 
 .parent {
   margin-top: 38px;
-  padding-top: 40px;
+  padding-top: 10px;
   position: relative;
 }
 

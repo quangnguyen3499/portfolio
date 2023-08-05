@@ -29,14 +29,14 @@ export default {
 }
 
 .logo-title-name {
-  font-size: 35px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 2px;
   transition: 0.5s all;
 }
 
 .logo-title-dot {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
 }
 </style>
