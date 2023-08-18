@@ -158,12 +158,12 @@ export default {
       if (this.number == this.all_info.length && this.shower == 0) {
         this.shower = 1;
         this.showBtn = "show less";
-      } else if (this.number == this.all_info.length && this.shower == 1) {
-        var elementPosition = document.getElementById("portfolio").offsetTop;
-        window.scrollTo({ top: elementPosition + 5, behavior: "smooth" });
-        this.shower = 0;
-        this.number = 3;
-        this.showBtn = "show more";
+      // } else if (this.number == this.all_info.length && this.shower == 1) {
+      //   var elementPosition = document.getElementById("portfolio").offsetTop;
+      //   window.scrollTo({ top: elementPosition + 5, behavior: "smooth" });
+      //   this.shower = 0;
+      //   this.number = 3;
+      //   this.showBtn = "show more";
       }
     },
   },

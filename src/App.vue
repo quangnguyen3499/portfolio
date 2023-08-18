@@ -5,7 +5,7 @@
       <Home/>
       <About id="about"/>
       <Skills id="skills"/>
-      <Portfolio id="portfolio"/>
+      <!-- <Portfolio id="portfolio"/> -->
       <Contact id="contact"/>
       <Footer/>
     </div>

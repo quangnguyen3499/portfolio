@@ -3,6 +3,8 @@
 ### Build Setup
 
 ``` bash
+# enable legacy openssl provider
+export NODE_OPTIONS=--openssl-legacy-provider
 # install dependencies
 npm install
 # serve with hot reload at localhost:8080
