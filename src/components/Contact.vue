@@ -50,6 +50,7 @@ export default {
       showSnackbar: false,
       snackbarMessage: "",
       snackbarColor: "",
+      isSending: false,
     };
   },
   methods: {
@@ -61,6 +62,8 @@ export default {
       }
     },
     sendEmail() {
+      if (this.isSending) return;
+
       const trimmedName = this.name.trim();
       const trimmedEmail = this.email.trim();
       const trimmedText = this.text.trim();
@@ -80,17 +83,19 @@ export default {
         return;
       }
 
+      this.isSending = true;
+
       const emailData = {
         name: trimmedName,
         email: trimmedEmail,
         message: trimmedText,
       };
 
-      fetch('https://6m20mi8jng.execute-api.ap-southeast-1.amazonaws.com/default/myMailSender', {
+      fetch('https://7ejozit5zh.execute-api.ap-southeast-1.amazonaws.com/prod/myMailSender', {
         method: 'POST',
+        mode: "no-cors",
         headers: {
           'Content-Type': 'application/json',
-          "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify(emailData),
       })
@@ -114,6 +119,9 @@ export default {
           this.showSnackbar = true;
           this.snackbarMessage = "Oops! Something went wrong.";
           this.snackbarColor = "#64808E";
+        })
+        .finally(() => {
+          this.isSending = false;
         });
     },
   },
