@@ -1,98 +1,40 @@
 <template>
-  <div
-    class="py-4 p-st"
-  >
+  <div class="py-4 p-st">
     <div class="container">
-      <div
-        class="text-center"
-        data-aos="fade"
-        data-aos-once="true"
-        data-aos-duration="1000"
-      >
-        <span
-          class="title text-center"
-          >Contact.</span
-        >
+      <div class="text-center" data-aos="fade" data-aos-once="true" data-aos-duration="1000">
+        <span class="title text-center">Contact me</span>
       </div>
-      <hr
-        width="50%"
-      />
+      <hr width="50%" />
       <br />
       <div class="text-center">
-        <div
-          class="mb-3"
-          data-aos="fade-up"
-          data-aos-once="true"
-          data-aos-duration="1000"
-        >
-          <input
-            type="text"
-            name="user_name"
-            v-model="name"
-            placeholder="Name"
-            class="pinput"
-            style="transition-delay: 0.2s"
-          />
+        <div class="mb-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+          <input type="text" name="user_name" v-model="name" placeholder="Name" class="pinput"
+            style="transition-delay: 0.2s" />
         </div>
 
-        <div
-          class="my-3"
-          data-aos="fade-up"
-          data-aos-once="true"
-          data-aos-duration="1000"
-        >
-          <input
-            type="email"
-            name="user_email"
-            v-model="email"
-            placeholder="Email"
-            class="pinput"
-            style="transition-delay: 0.4s"
-          />
+        <div class="my-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+          <input type="email" name="user_email" v-model="email" placeholder="Email" class="pinput"
+            style="transition-delay: 0.4s" />
         </div>
 
-        <div
-          class="my-3"
-          data-aos="fade-up"
-          data-aos-once="true"
-          data-aos-duration="1000"
-        >
-          <textarea
-            name="message"
-            v-model="text"
-            placeholder="Message"
-            class="pinput"
-            rows="4"
-            style="transition-delay: 0.6s"
-          ></textarea>
+        <div class="my-3" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+          <textarea name="message" v-model="text" placeholder="Message" class="pinput" rows="4"
+            style="transition-delay: 0.6s"></textarea>
         </div>
 
-        <button
-          @click.prevent="sendEmail"
-          class="mt-1 btn mb-3"
-          data-aos="fade"
-          data-aos-once="true"
-          data-aos-duration="1000"
-          data-aos-offset="50"
-        >
+        <button @click.prevent="sendEmail" class="mt-1 btn mb-3" data-aos="fade" data-aos-once="true"
+          data-aos-duration="1000" data-aos-offset="50">
           Send
         </button>
       </div>
 
-      <Snackbar
-        :showSnackbar="showSnackbar"
-        @close="closeSnackbar"
-        :snackbarMessage="snackbarMessage"
-        :snackbarColor="snackbarColor"
-      />
+      <Snackbar :showSnackbar="showSnackbar" @close="closeSnackbar" :snackbarMessage="snackbarMessage"
+        :snackbarColor="snackbarColor" />
     </div>
   </div>
 </template>
 
 <script>
-import config from "../../config";
-import emailjs from "emailjs-com";
-
 import Snackbar from "./helpers/Snackbar";
 
 export default {
@@ -119,42 +61,60 @@ export default {
       }
     },
     sendEmail() {
-      if (!this.email || !this.name || !this.text) {
+      const trimmedName = this.name.trim();
+      const trimmedEmail = this.email.trim();
+      const trimmedText = this.text.trim();
+
+      if (!trimmedName || !trimmedEmail || !trimmedText) {
         this.showSnackbar = true;
-        this.snackbarMessage = "Please all the fields";
+        this.snackbarMessage = "Please fill in all fields";
         this.snackbarColor = "#64808E";
-      } else {
-        var obj = {
-          user_email: this.email,
-          from_name: this.name,
-          message_html: this.text,
-          to_name: "Mahy Mohab",
-        };
-
-        emailjs
-          .send(
-            config.emailjs.serviceID,
-            config.emailjs.templateID,
-            obj,
-            config.emailjs.userID
-          )
-          .then(
-            (result) => {
-              this.showSnackbar = true;
-              this.snackbarMessage = "Thanks! Message recieved.";
-              this.snackbarColor = "#1aa260";
-
-              this.email = "";
-              this.text = "";
-              this.name = "";
-            },
-            (error) => {
-              this.showSnackbar = true;
-              this.snackbarMessage = "Oops! Something went wrong.";
-              this.snackbarColor = "#64808E";
-            }
-          );
+        return;
       }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(trimmedEmail)) {
+        this.showSnackbar = true;
+        this.snackbarMessage = "Please enter a valid email address";
+        this.snackbarColor = "#64808E";
+        return;
+      }
+
+      const emailData = {
+        name: trimmedName,
+        email: trimmedEmail,
+        message: trimmedText,
+      };
+
+      fetch('https://6m20mi8jng.execute-api.ap-southeast-1.amazonaws.com/default/myMailSender', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          "Access-Control-Allow-Origin": "*"
+        },
+        body: JSON.stringify(emailData),
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data === 'Email sent successfully') {
+            this.showSnackbar = true;
+            this.snackbarMessage = "Thanks! Message received.";
+            this.snackbarColor = "#1aa260";
+
+            this.email = "";
+            this.text = "";
+            this.name = "";
+          } else {
+            this.showSnackbar = true;
+            this.snackbarMessage = "Oops! Something went wrong.";
+            this.snackbarColor = "#64808E";
+          }
+        })
+        .catch(error => {
+          this.showSnackbar = true;
+          this.snackbarMessage = "Oops! Something went wrong.";
+          this.snackbarColor = "#64808E";
+        });
     },
   },
 };
@@ -165,30 +125,16 @@ export default {
   font-size: 24px;
   font-weight: 500;
 }
-.title1 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.title2 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.title3 {
-  font-size: 16px;
-  font-weight: 400;
-}
 
 .pinput {
-  font-size: 18px;
+  font-size: 14px;
   outline: none;
   border: none;
   border-radius: 7px;
   padding: 10px;
   width: 50%;
   transition: all 1s;
-  background-color: #dedeeb;
+  background-color: #ededfb;
 }
 
 .btn {
@@ -197,30 +143,16 @@ export default {
   width: 50%;
 }
 
-.btn:hover {
-  background-color: #759CC9;
-  border-color: #759CC9;
-  color: white;
-}
-
+.btn:hover,
 .btn:focus {
   background-color: #759CC9;
   border-color: #759CC9;
   color: white;
 }
 
-.pgray-dark {
-  background-color: #3c4148 !important;
-}
-
 @media screen and (max-width: 1000px) {
-  .pinput {
-    width: 90%;
-  }
-  .pinput {
-    width: 90%;
-  }
 
+  .pinput,
   .btn {
     width: 90%;
   }

@@ -10,17 +10,17 @@ let info = {
   },
   description:
     ` 
-      With over 3-years of expertise in the realm of software development, specializing in web development. I
+      With over 4-years of expertise in the realm of software development, specializing in web development. I
       possess a strong command of various areas. My skill set includes proficiency in Python, Django Framework, JavaScript, 
       both non-relational and relational databases. Moreover, I have hands-on experience in front-end
-      development with VueJS, ReactJS, Bootstrap and mobile with React Native. I’m also familiar with Docker and AWS services.
+      development with VueJS, ReactJS, Bootstrap and mobile with React Native. I’m also familiar with Docker, AWS and GCP services.
       I have worked through projects about e-commerce, human resources, computer vision, data mining and finance.
       I always want to come up with innovative ideas and effective solutions. 
     `,
   links: {
-    linkedin: "https://www.linkedin.com/in/quang-nguyen-513774195/",
+    linkedin: "https://www.linkedin.com/in/quang-nguyen-513774195",
     github: "https://github.com/quangnguyen3499",
-    resume: "https://drive.google.com/file/d/1ieBe56efdeQlP-tT0nphSHF9kCIsykVS/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1YODf90aAQYzjZSer-KO_C_JKgWogK00m/view?usp=sharing",
   },
   education: [
     {
@@ -52,10 +52,11 @@ let info = {
           "- Setup CI/CD, hold sharing knowledge sessions in the team"
         ],
       skills: [
-        "Python", "Django", "Django Rest Framework",
-        "Flask", "Celery", "Apache Kafka", "RabbitMQ",
-        "AWS", "ElasticSearch", "Docker", "Apache Superset",
-        "MySQL", "PostgreSQL"
+        "Python", "Django", "FastAPI", "Flask",
+        "Celery", "Apache Kafka", "RabbitMQ",
+        "AWS", "GCP", "ElasticSearch", "Docker", 
+        "Apache Superset", "Databases",
+        "Selenium", "Playwright", "Scrapy"
       ]
     },
     {
@@ -143,6 +144,11 @@ let info = {
       title: "Data Analytic",
       info: ["Superset", "Tableau"],
       icon: "fa fa-bar-chart"
+    },
+    {
+      title: "Web Crawling",
+      info: ["Selenium", "Playwright", "Scrapy", "BeautifulSoup"],
+      icon: "fa fa-spider"
     }
   ],
   portfolio_design: [
