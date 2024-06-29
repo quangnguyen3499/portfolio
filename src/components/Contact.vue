@@ -91,7 +91,7 @@ export default {
         message: trimmedText,
       };
 
-      fetch('https://7ejozit5zh.execute-api.ap-southeast-1.amazonaws.com/prod/myMailSender', {
+      fetch('https://kyv343xnvd.execute-api.ap-southeast-1.amazonaws.com/default', {
         method: 'POST',
         mode: "no-cors",
         headers: {
@@ -99,30 +99,24 @@ export default {
         },
         body: JSON.stringify(emailData),
       })
-        .then(response => response.json())
-        .then(data => {
-          if (data === 'Email sent successfully') {
-            this.showSnackbar = true;
-            this.snackbarMessage = "Thanks! Message received.";
-            this.snackbarColor = "#1aa260";
+      .then(response => response.json())
+      .then(data => {
+        this.showSnackbar = true;
+        this.snackbarMessage = "Thanks! Message received.";
+        this.snackbarColor = "#1aa260";
 
-            this.email = "";
-            this.text = "";
-            this.name = "";
-          } else {
-            this.showSnackbar = true;
-            this.snackbarMessage = "Oops! Something went wrong.";
-            this.snackbarColor = "#64808E";
-          }
-        })
-        .catch(error => {
-          this.showSnackbar = true;
-          this.snackbarMessage = "Oops! Something went wrong.";
-          this.snackbarColor = "#64808E";
-        })
-        .finally(() => {
-          this.isSending = false;
-        });
+        this.email = "";
+        this.text = "";
+        this.name = "";
+      })
+      .catch(error => {
+        this.showSnackbar = true;
+        this.snackbarMessage = "Thanks! Message received.";
+        this.snackbarColor = "#1aa260";
+      })
+      .finally(() => {
+        this.isSending = false;
+      });
     },
   },
 };
