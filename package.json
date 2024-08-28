@@ -22,7 +22,7 @@
     "vue-parallax-js": "^0.2.3",
     "vue-router": "^3.3.4",
     "vue-scrollto": "^2.18.1",
-    "vueperslides": "^2.10.2"
+    "vueperslides": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
