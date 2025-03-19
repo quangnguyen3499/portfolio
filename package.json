@@ -14,7 +14,7 @@
     "core-js": "^3.6.4",
     "emailjs-com": "^2.4.1",
     "material-icons": "^1.0.0",
-    "serve": "^11.3.0",
+    "serve": "^14.0.0",
     "v-tooltip": "^2.0.3",
     "vue": "^2.6.11",
     "vue-cookie": "^1.1.4",
