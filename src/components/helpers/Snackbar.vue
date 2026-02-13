@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <div
-      id="snackbar"
-      :class="{ show: showSnackbar }"
-      :style="{ 'background-color': snackbarColor }"
-    >
-      {{ snackbarMessage }}
-    </div>
+  <div
+    id="snackbar"
+    :class="{ show: showSnackbar }"
+    :style="{ backgroundColor: snackbarColor }"
+  >
+    {{ snackbarMessage }}
   </div>
 </template>
 
@@ -14,23 +12,13 @@
 export default {
   name: "Snackbar",
   props: {
-    showSnackbar: {
-      type: Boolean,
-    },
-    snackbarMessage: {
-      type: String,
-    },
-    snackbarColor: {
-      type: String,
-    },
+    showSnackbar: Boolean,
+    snackbarMessage: String,
+    snackbarColor: String,
   },
   watch: {
     showSnackbar(nv) {
-      if (nv) {
-        setTimeout(() => {
-          this.$emit("close", false);
-        }, 1900);
-      }
+      if (nv) setTimeout(() => this.$emit("close", false), 1900);
     },
   },
 };
@@ -39,67 +27,45 @@ export default {
 <style scoped>
 #snackbar {
   visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
+  min-width: 280px;
+  margin-left: -140px;
   color: #fff;
   text-align: center;
-  border-radius: 7px;
-  padding: 16px;
+  border-radius: 10px;
+  padding: 14px 20px;
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   left: 50%;
-  float: right;
   top: 100px;
-  font-size: 17px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 #snackbar.show {
   visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: snackbar-in 0.3s ease, snackbar-out 0.3s ease 2.2s forwards;
 }
 
-@-webkit-keyframes fadein {
+@keyframes snackbar-in {
   from {
-    top: 0;
     opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-    top: 100px;
     opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    top: 0;
-    opacity: 0;
-  }
-  to {
-    top: 100px;
-    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@-webkit-keyframes fadeout {
+@keyframes snackbar-out {
   from {
-    top: 100px;
     opacity: 1;
+    transform: translateY(0);
   }
   to {
-    top: 0;
     opacity: 0;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    top: 30px;
-    opacity: 1;
-  }
-  to {
-    top: 0;
-    opacity: 0;
+    transform: translateY(-10px);
   }
 }
 </style>

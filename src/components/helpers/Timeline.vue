@@ -1,59 +1,32 @@
 <template>
-  <div>
-    <div class="mx-3 mt-3 mb-5">
-      <div class="row">
-        <div class="col-xl-12 col-bg-12 col-md-12 col-sm-12">
-          <p
-            class="title1"
-            data-aos="fade"
-            data-aos-once="true"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="true"
-            data-aos-duration="1000"
-          >
-            {{ data.title }}
-          </p>
-          <ul
-            class="timeline m-0 pt-1"
-            v-for="(e, idx) in data.data"
-            :key="e.name"
-            :style="{ 'transition-delay': idx / 4.2 + 's' }"
-            data-aos="fade-up"
-            data-offset="10"
-            data-aos-once="true"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="true"
-            data-aos-duration="500"
-          >
-            <li class="m-0 pb-2">
-              <div>
-                <div class="px-2 title2">{{ e.name }}, {{ e.place }}</div>
-                <div class="px-2 title3">
-                  {{ e.degree || e.position }}
-                  {{ e.gpa ? "(" + e.gpa + ")" : "" }}
-                </div>
-                <div class="px-2 date">{{ e.date }}</div>
-                <div class="px-2 pb-2 pt-2" style="text-align: justify; font-size: 14px;">
-                  <p
-                    v-for="d in e.description"
-                    :key="d"
-                  >
-                    {{ d }}
-                  </p>
-                </div>
-                <span
-                  class="mx-2 badge p-2 mb-2"
-                  v-for="s in e.skills"
-                  :key="s"
-                  >{{ s }}</span
-                >
-                <p class="m-2"></p>
-              </div>
-            </li>
-          </ul>
+  <div class="timeline-block">
+    <h3 class="timeline-heading">{{ data.title }}</h3>
+    <ul class="timeline-list">
+      <li
+        v-for="(e, idx) in data.data"
+        :key="e.name + (e.date || '')"
+        class="timeline-item"
+        :style="{ '--delay': idx * 0.05 + 's' }"
+        data-aos="fade-up"
+        data-aos-once="true"
+        data-aos-duration="400"
+      >
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <span class="timeline-name">{{ e.name }}, {{ e.place }}</span>
+            <span class="timeline-role">{{ e.degree || e.position }}{{ e.gpa ? " (" + e.gpa + ")" : "" }}</span>
+            <span class="timeline-date">{{ e.date }}</span>
+          </div>
+          <div class="timeline-body" v-if="e.description && e.description.length">
+            <p v-for="d in e.description" :key="d" class="timeline-desc">{{ d }}</p>
+          </div>
+          <div class="timeline-tags" v-if="e.skills && e.skills.length">
+            <span v-for="s in e.skills" :key="s" class="timeline-tag">{{ s }}</span>
+          </div>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -63,72 +36,119 @@ export default {
   props: {
     data: {
       type: Object,
+      required: true,
     },
   },
 };
 </script>
 
 <style scoped>
-.title1 {
-  font-size: 16px;
-  font-weight: 500;
+.timeline-block {
+  margin-bottom: 2rem;
 }
 
-.title2 {
-  font-size: 16px;
-  font-weight: 400;
+.timeline-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
 }
 
-.title3 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.badge {
-  background-color: #c1d6ed;
-  transition: all 0.5s;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.date {
-  font-size: 14px;
-  font-weight: 300;
-}
-
-ul.timeline {
-  list-style-type: none;
+.timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   position: relative;
-}
-ul.timeline:before {
-  content: " ";
-  background: #d4d9df;
-  display: inline-block;
-  position: absolute;
-  left: 29px;
-  width: 2px;
-  height: 93%;
-  margin-top: 20px;
-  z-index: 400;
-}
-ul.timeline > li {
-  margin: 20px 0;
-  padding-left: 20px;
-}
-ul.timeline > li:before {
-  content: " ";
-  background: #6de966;
-  display: inline-block;
-  position: absolute;
-  border-radius: 50%;
-  border: 2px solid #6de966;
-  left: 20px;
-  width: 25px;
-  height: 25px;
-  z-index: 400;
+  padding-left: 24px;
+  border-left: 2px solid var(--border);
 }
 
-.bg-dark2 {
-  background-color: #3c4148 !important;
+.timeline-item {
+  position: relative;
+  padding-bottom: 1.75rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -30px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--surface);
+}
+
+.timeline-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.timeline-content:hover {
+  border-color: rgba(34, 211, 238, 0.25);
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  margin-bottom: 8px;
+}
+
+.timeline-name {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.timeline-role {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.9;
+}
+
+.timeline-body {
+  margin-top: 8px;
+}
+
+.timeline-desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 4px;
+}
+
+.timeline-desc:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.timeline-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 6px;
 }
 </style>

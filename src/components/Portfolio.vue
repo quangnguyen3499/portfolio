@@ -70,7 +70,6 @@ import Card from "./helpers/Card";
 import Modal from "./helpers/Modal";
 import DesignModal from "./helpers/DesignModal";
 import Carousel from "./helpers/Carousel";
-import info from "../../info";
 
 import { VueTabs, VTab } from "vue-nav-tabs";
 import "vue-nav-tabs/themes/vue-tabs.css";
@@ -80,6 +79,7 @@ import "vueperslides/dist/vueperslides.css";
 
 export default {
   name: "Portfolio",
+  inject: ["info"],
   components: {
     Card,
     Modal,
@@ -91,8 +91,8 @@ export default {
   },
   data() {
     return {
-      all_info: info.portfolio,
-      desgin_info: info.portfolio_design,
+      all_info: this.info.portfolio,
+      desgin_info: this.info.portfolio_design,
       portfolio_info: [],
       showModal: false,
       showDesignModal: false,
