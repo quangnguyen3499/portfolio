@@ -1,14 +1,13 @@
 <template>
-  <div id="app">
+  <div id="app" class="theme-dark">
     <Navbar @scroll="scrollTo" />
-    <div class="parent">
-      <Home/>
-      <About id="about"/>
-      <Skills id="skills"/>
-      <!-- <Portfolio id="portfolio"/> -->
-      <Contact id="contact"/>
-      <Footer/>
-    </div>
+    <main class="main">
+      <Home @scroll="scrollTo" />
+      <About id="about" />
+      <Skills id="skills" />
+      <Contact id="contact" />
+      <Footer />
+    </main>
   </div>
 </template>
 
@@ -21,7 +20,7 @@ import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-import info from "../info";
+import info from "./data";
 
 export default {
   name: "App",
@@ -34,29 +33,41 @@ export default {
     Contact,
     Footer,
   },
+  provide() {
+    return { info };
+  },
   data() {
     return {
       config: info.config,
     };
   },
   mounted() {
-    ["about", "contact", "skills", "portfolio"].forEach((l) => {
-      if (window.location.href.includes(l)) {
-        var elementPosition = document.getElementById(l).offsetTop;
-        window.scrollTo({ top: elementPosition - 35, behavior: "smooth" });
-      }
+    this.$nextTick(() => {
+      ["about", "contact", "skills", "portfolio"].forEach((l) => {
+        if (window.location.href.includes(l)) {
+          const el = document.getElementById(l);
+          if (el) {
+            const elementPosition = el.offsetTop;
+            window.scrollTo({ top: elementPosition - 70, behavior: "smooth" });
+          }
+        }
+      });
     });
   },
   methods: {
     scrollTo(ele) {
-      if (ele == "home") {
-        this.$router.push(`/`).catch(()=>{});
-        window.scrollTo({ top: -80, behavior: "smooth" });
+      if (ele === "home") {
+        this.$router.push(`/`).catch(() => {});
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        var elementPosition = document.getElementById(ele).offsetTop;
-        window.scrollTo({ top: elementPosition - 35, behavior: "smooth" });
-        if (this.$router.history.current.path !== `/${ele}`)
-          this.$router.push(`/${ele}`);
+        const el = document.getElementById(ele);
+        if (el) {
+          const elementPosition = el.offsetTop;
+          window.scrollTo({ top: elementPosition - 70, behavior: "smooth" });
+          if (this.$router.history.current.path !== `/${ele}`) {
+            this.$router.push(`/${ele}`);
+          }
+        }
       }
     },
   },
@@ -64,73 +75,70 @@ export default {
 </script>
 
 <style>
+/* Dark theme variables */
+.theme-dark {
+  --bg: #0a0a0c;
+  --surface: #12121a;
+  --surface-elevated: #1a1a24;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e4e4e7;
+  --text-muted: #a1a1aa;
+  --accent: #22d3ee;
+  --accent-soft: rgba(34, 211, 238, 0.15);
+  --accent-hover: #67e8f9;
+}
+
 #app {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
   width: 100%;
 }
 
-@media screen and (max-width: 580px) {
-  #app {
-    width: fit-content;
-  }
-}
-
-.parent {
-  margin-top: 38px;
-  padding-top: 10px;
+.main {
+  padding-top: 72px;
   position: relative;
 }
 
-.pgray {
-  color: #6d7377;
-}
-
-.pblue {
-  color: #759CC9;
-}
-
 .p-st {
-  transition: all 0.5s !important;
+  transition: all 0.3s ease;
 }
 
-/* To set scrollbar width */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
+  height: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 9px;
-  border: 2px solid white; /* Use your background color instead of White */
-  background-clip: content-box;
+  background: var(--surface);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #AEAEAE;
-  border-radius: 9px;
+  background: var(--surface-elevated);
+  border-radius: 4px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #949494;
+  background: rgba(255, 255, 255, 0.2);
 }
 
+/* Tooltips */
 .tooltip {
   display: block !important;
   z-index: 10000;
 }
 
 .tooltip .tooltip-inner {
-  background: #64808E;
-  color: white;
+  background: var(--surface-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  font-size: 10px;
-  /* padding: 5px 10px 4px; */
+  font-size: 12px;
+  padding: 6px 10px;
 }
 
 .tooltip .tooltip-arrow {
@@ -139,12 +147,12 @@ export default {
   border-style: solid;
   position: absolute;
   margin: 5px;
-  border-color: #64808E;
+  border-color: var(--surface-elevated);
   z-index: 1;
 }
 
 .tooltip[x-placement^="top"] {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .tooltip[x-placement^="top"] .tooltip-arrow {
@@ -159,7 +167,7 @@ export default {
 }
 
 .tooltip[x-placement^="bottom"] {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .tooltip[x-placement^="bottom"] .tooltip-arrow {
@@ -173,10 +181,6 @@ export default {
   margin-bottom: 0;
 }
 
-.tooltip[x-placement^="right"] {
-  margin-left: 5px;
-}
-
 .tooltip[x-placement^="right"] .tooltip-arrow {
   border-width: 5px 5px 5px 0;
   border-left-color: transparent !important;
@@ -184,12 +188,6 @@ export default {
   border-bottom-color: transparent !important;
   left: -5px;
   top: calc(50% - 5px);
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.tooltip[x-placement^="left"] {
-  margin-right: 5px;
 }
 
 .tooltip[x-placement^="left"] .tooltip-arrow {
@@ -199,31 +197,25 @@ export default {
   border-bottom-color: transparent !important;
   right: -5px;
   top: calc(50% - 5px);
-  margin-left: 0;
-  margin-right: 0;
 }
 
 .tooltip.popover .popover-inner {
-  background: #f9f9f9;
-  color: black;
+  background: var(--surface-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
   padding: 24px;
-  border-radius: 5px;
-  box-shadow: 0 5px 30px rgba(black, 0.1);
-}
-
-.tooltip.popover .popover-arrow {
-  border-color: #f9f9f9;
+  border-radius: 12px;
 }
 
 .tooltip[aria-hidden="true"] {
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s, visibility 0.5s;
+  transition: opacity 0.25s, visibility 0.25s;
 }
 
 .tooltip[aria-hidden="false"] {
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.25s;
 }
 </style>

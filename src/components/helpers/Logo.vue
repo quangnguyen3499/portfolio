@@ -1,21 +1,17 @@
 <template>
-  <div class="logo-div">
-    <span
-      class="logo-title-name"
-      >{{ name }}</span
-    >
-    <span class="logo-title-dot pblue">{{ dot }}</span>
+  <div class="logo">
+    <span class="logo-name">{{ name }}</span>
+    <span class="logo-dot">{{ dot }}</span>
   </div>
 </template>
 
 <script>
-import info from "../../../info";
-
 export default {
   name: "Logo",
+  inject: ["info"],
   data() {
     return {
-      name: info.logo_name,
+      name: this.info.logo_name,
       dot: ".",
     };
   },
@@ -23,20 +19,27 @@ export default {
 </script>
 
 <style scoped>
-.logo-div:hover .logo-title-name {
-  letter-spacing: 0px;
-  transition: 0.5s all;
+.logo {
+  display: inline-flex;
+  align-items: baseline;
 }
 
-.logo-title-name {
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  transition: 0.5s all;
+.logo:hover .logo-name {
+  color: var(--text);
 }
 
-.logo-title-dot {
-  font-size: 24px;
+.logo-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.logo-dot {
+  font-size: 1.4rem;
   font-weight: 700;
+  color: var(--accent);
+  margin-left: 1px;
 }
 </style>

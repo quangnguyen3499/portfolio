@@ -2,7 +2,7 @@
 
 ### Build Setup
 
-``` bash
+```bash
 # enable legacy openssl provider
 export NODE_OPTIONS=--openssl-legacy-provider
 # install dependencies
