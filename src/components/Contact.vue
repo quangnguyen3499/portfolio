@@ -43,6 +43,7 @@
 
 <script>
 import Snackbar from "./helpers/Snackbar";
+import emailjs from "emailjs-com";
 
 export default {
   name: "Contact",
@@ -84,26 +85,36 @@ export default {
         return;
       }
       this.isSending = true;
-      fetch("https://kyv343xnvd.execute-api.ap-southeast-1.amazonaws.com/default", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: trimmedName, email: trimmedEmail, message: trimmedText }),
-      })
+
+      emailjs
+        .send(
+          process.env.VUE_APP_EMAILJS_SERVICE_ID, // Use environment variable
+          process.env.VUE_APP_EMAILJS_TEMPLATE_ID, // Use environment variable
+          {
+            name: trimmedName,
+            email: trimmedEmail,
+            message: trimmedText,
+          },
+          process.env.VUE_APP_EMAILJS_USER_ID // Use environment variable
+        )
         .then(() => {
           this.showSnackbar = true;
-          this.snackbarMessage = "Thanks! Message received.";
-          this.snackbarColor = "#22d3ee";
+          this.snackbarMessage = "Thanks! Message sent successfully.";
+          this.snackbarColor = "#1aa260";
+
           this.email = "";
           this.text = "";
           this.name = "";
         })
-        .catch(() => {
+        .catch((error) => {
+          console.error("Error sending email:", error);
           this.showSnackbar = true;
-          this.snackbarMessage = "Thanks! Message received.";
-          this.snackbarColor = "#22d3ee";
+          this.snackbarMessage = "Failed to send message. Please try again later.";
+          this.snackbarColor = "#e74c3c";
         })
-        .finally(() => { this.isSending = false; });
+        .finally(() => {
+          this.isSending = false;
+        });
     },
   },
 };
