@@ -266,5 +266,42 @@ export default {
       description: "pill reminder app for nessecary drugs for the day.",
     },
   ],
-  portfolio: [],
+  portfolio: [
+    {
+      name: "Badminton Recommendation System",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["Python", "FastAPI", "VueJS", "LLM"],
+      category: "Web App",
+      date: "Apr, 2024",
+      github: "https://github.com/quangnguyen3499/badminton-system",
+      visit: "https://demo.com",
+      description: "A comprehensive recommendation system for badminton gear. Utilizes web scrapers to gather data and an AI model to analyze user inputs against the product database to provide personalized gear recommendations."
+    },
+    {
+      name: "Pygame Zanthor",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["Python", "Pygame"],
+      category: "Game",
+      date: "Feb, 2026",
+      github: "https://github.com/quangnguyen3499/zanthor",
+      visit: "https://zanthor-game.com",
+      description: "A retro-style 2D game built with Python and Pygame. Features include physics, rendering, level progression, and complex gameplay logic."
+    },
+    {
+      name: "Real Estate Platform",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" }
+      ],
+      technologies: ["React", "TypeScript", "Node.js", "MongoDB"],
+      category: "Web App",
+      date: "May, 2026",
+      github: "https://github.com/quangnguyen3499/real-estate",
+      visit: "https://real-estate-demo.com",
+      description: "A comprehensive real estate platform with high-quality imagery, advanced filtering, and a sleek user interface. Resolves missing media assets efficiently using custom functional links."
+    }
+  ],
 };

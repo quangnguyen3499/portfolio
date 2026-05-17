@@ -1,8 +1,7 @@
 <template>
   <div class="my-3 mx-3">
     <div
-      class="card smcard"
-      :class="pcard-dark"
+      class="card smcard pcard-dark"
     >
       <div style="height: 180px;">
         <img
@@ -110,7 +109,7 @@ div.img-div {
   height: 100%;
 }
 .pborder-top {
-  border-top: 1px solid rgb(193, 193, 193);
+  border-top: 1px solid var(--border);
 }
 
 .pcard {
@@ -130,8 +129,8 @@ div.img-div {
 
 .pcard-dark {
   border-radius: 7px;
-  border: none;
-  background-color: #30363a !important;
+  border: 1px solid var(--border);
+  background-color: var(--surface-elevated) !important;
   /* box-shadow: 1px 1px 12px rgb(53, 53, 53); */
   transition: all 0.5s;
   height: 460px;
@@ -140,13 +139,13 @@ div.img-div {
 .pcard-dark:hover {
   transition: all 0.5s;
   /* cursor: pointer; */
-  box-shadow: 1px 1px 12px rgb(53, 53, 53);
+  box-shadow: 1px 1px 12px rgba(0,0,0,0.5);
 }
 
 .pcard-body {
-  border-top: 1px solid rgb(220, 220, 220);
+  border-top: 1px solid var(--border);
   z-index: -1;
-  background-color: rgb(253, 254, 255);
+  background-color: var(--surface-elevated);
 }
 
 .title {
@@ -169,27 +168,29 @@ div.img-div {
 }
 
 .badge {
-  background-color: #bbd4dd;
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
   transition: all 0.5s;
   font-weight: 500;
   font-size: 13px;
 }
 
 .btn {
-  border-color: #759CC9;
-  color: #759CC9;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn:hover {
-  background-color: #759CC9;
-  border-color: #759CC9;
-  color: white;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
 }
 
 .btn:focus {
-  background-color: #759CC9;
-  border-color: #759CC9;
-  color: white;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
 }
 
 .bg-dark3 {

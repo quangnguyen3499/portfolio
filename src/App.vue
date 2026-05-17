@@ -3,6 +3,7 @@
     <Navbar @scroll="scrollTo" />
     <main class="main">
       <Home @scroll="scrollTo" />
+      <Portfolio id="portfolio" />
       <About id="about" />
       <Skills id="skills" />
       <Contact id="contact" />

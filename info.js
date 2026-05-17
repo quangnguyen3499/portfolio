@@ -340,33 +340,48 @@ let info = {
     },
   ],
   portfolio: [
-    // {
-    //   name: "Online Examination",
-    //   pictures: [
-    //     {
-    //       img: require("./src/assets/portfolio/online examination/exam (1).png")
-    //     },
-    //     {
-    //       img: require("./src/assets/portfolio/online examination/exam (2).png")
-    //     },
-    //     {
-    //       img: require("./src/assets/portfolio/online examination/exam (3).png")
-    //     },
-    //     {
-    //       img: require("./src/assets/portfolio/online examination/exam (4).png")
-    //     },
-    //     {
-    //       img: require("./src/assets/portfolio/online examination/exam (5).png")
-    //     }
-    //   ],
-    //   technologies: ["HTML", "CSS","JavaSript","JQuery", "PHP", "MySQL"],
-    //   category: "Web App",
-    //   date: "Apr, 2021 - May, 2021",
-    //   github: "https://github.com/mahy209/online-examination.git",
-    //   visit: "https://github.com/mahy209/online-examination.git",
-    //   description:
-    //     "Online Examination System Today Online Examination System has become a fast growing examination method because of its speed and accuracy. It is also needed less manpower to execute the examination. Almost all organizations now-a-days, are conducting their objective exams by online examination system, it saves students time in examinations. Organizations can also easily check the performance of the student that they give in an examination. As a result of this, organizations are releasing results in less time. It also helps the environment by saving paper. According to today’s requirement, online examination project in php is very useful to learn it. What is an online examination system? In an online examination system examine get their user id and password with his/her admit card. This id is already saved in the examination server. When examine login to the server he/she get his/her profile already register. On the certain time examine gets the message to start the examination. All answers given by examine are saved into the server with his/her profile information. Online examination system also allows to correct the answer if the examine needed to change any answer in the examination time duration, however, after the time duration any change will not allow. This also makes c checking the answer easy and error proof as computers are more accurate than man and provide fast results too. Php is a web base language so we can create an online examination system in PHP. Administrator of Online Examination has multiple features such as Add, Delete, Update Topics and Question. To Login as Admin put inside your browser."
-    // },
+    {
+      name: "Badminton Recommendation System",
+      pictures: [
+        {
+          img: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=2070&auto=format&fit=crop"
+        }
+      ],
+      technologies: ["Python", "FastAPI", "VueJS", "LLM"],
+      category: "Web App",
+      date: "Apr, 2024",
+      github: "https://github.com/quangnguyen3499/badminton-system",
+      visit: "https://demo.com",
+      description: "A comprehensive recommendation system for badminton gear. Utilizes web scrapers to gather data and an AI model to analyze user inputs against the product database to provide personalized gear recommendations."
+    },
+    {
+      name: "Pygame Zanthor",
+      pictures: [
+        {
+          img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
+        }
+      ],
+      technologies: ["Python", "Pygame"],
+      category: "Game",
+      date: "Feb, 2026",
+      github: "https://github.com/quangnguyen3499/zanthor",
+      visit: "https://zanthor-game.com",
+      description: "A retro-style 2D game built with Python and Pygame. Features include physics, rendering, level progression, and complex gameplay logic."
+    },
+    {
+      name: "Real Estate Platform",
+      pictures: [
+        {
+          img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
+        }
+      ],
+      technologies: ["React", "TypeScript", "Node.js", "MongoDB"],
+      category: "Web App",
+      date: "May, 2026",
+      github: "https://github.com/quangnguyen3499/real-estate",
+      visit: "https://real-estate-demo.com",
+      description: "A comprehensive real estate platform with high-quality imagery, advanced filtering, and a sleek user interface. Resolves missing media assets efficiently using custom functional links."
+    }
   ],
 };
 

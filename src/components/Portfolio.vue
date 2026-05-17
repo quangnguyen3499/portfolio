@@ -2,50 +2,37 @@
   <div
     class="py-4 p-st"
   >
-    <!-- <div class="container">
-      <div
-        class="text-center"
-        data-aos="fade"
-        data-aos-once="true"
-        data-aos-duration="1000"
-      >
-        <span
-          class="title text-center"
-          :class="pgray"
-          >Projects.</span
-        >
-      </div>
-      <hr
-        width="50%"
-        :class="pgray"
-      />
+    <div class="section-inner">
+      <header class="section-header" data-aos="fade" data-aos-once="true" data-aos-duration="600">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">A selection of my recent side projects</p>
+      </header>
 
-      <vue-tabs :activeTextColor="#535A5E">
-        <div class="row">
-          <div
-            class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
-            v-for="(portfolio, idx) in portfolio_info"
-            :key="portfolio.name"
-          >
-            <Card
-              :style="{ 'transition-delay': (idx % 3) / 4.2 + 's' }"
-              :portfolio="portfolio"
-              @show="showModalFn"
-              data-aos="fade-up"
-              data-aos-offset="100"
-              data-aos-delay="10"
-              data-aos-duration="500"
-              data-aos-easing="ease-in-out"
-              data-aos-mirror="true"
-              data-aos-once="true"
-            />
-          </div>
+      <div class="row" style="display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px;">
+        <div
+          class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
+          style="width: 33.333%; padding: 15px; box-sizing: border-box;"
+          v-for="(portfolio, idx) in portfolio_info"
+          :key="portfolio.name"
+        >
+          <Card
+            :style="{ 'transition-delay': (idx % 3) / 4.2 + 's' }"
+            :portfolio="portfolio"
+            @show="showModalFn"
+            data-aos="fade-up"
+            data-aos-offset="100"
+            data-aos-delay="10"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="true"
+          />
         </div>
-        <div class="text-center py-3" v-if="showBtn !== 'show less'">
-          <button class="btn" @click.prevent="showMore">{{ showBtn }}</button>
-        </div>
-      </vue-tabs>
-    </div> -->
+      </div>
+      <div class="text-center py-3" v-if="showBtn !== 'show less'">
+        <button class="btn" style="margin: 0 auto; display: block;" @click.prevent="showMore">{{ showBtn }}</button>
+      </div>
+    </div>
     <transition name="modal">
       <Modal
         :showModal="showModal"
@@ -109,16 +96,11 @@ export default {
     };
   },
   created() {
-    for (var i = 0; i < this.number; i++) {
-      this.portfolio_info.push(this.all_info[i]);
-    }
+    this.portfolio_info = this.all_info.slice(0, this.number);
   },
   watch: {
     number() {
-      this.portfolio_info = [];
-      for (var i = 0; i < this.number; i++) {
-        this.portfolio_info.push(this.all_info[i]);
-      }
+      this.portfolio_info = this.all_info.slice(0, this.number);
     },
   },
   methods: {
@@ -171,6 +153,30 @@ export default {
 </script>
 
 <style scoped>
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
 .title {
   font-size: 24px;
   font-weight: 500;
