@@ -3,15 +3,14 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div
-          class="modal-container"
-          :class="bg-light"
+          class="modal-container bg-light"
         >
           <div class="title1 px-4 pt-3">
             <span
               ><a
                 href="#"
                 @click.prevent="open(portfolio.visit)"
-                :class="text-light"
+                class="text-light"
                 >{{ portfolio.name }}</a
               ></span
             >
@@ -22,14 +21,12 @@
               ><i class="fas fa-times"></i
             ></a>
             <hr
-              class="my-1"
-              :class="pgray"
+              class="my-1 pgray"
             />
           </div>
           <div class="modal-body my-0 pb-0 px-4 pt-0">
             <div
-              class="mb-2 date"
-              :class="text-light"
+              class="mb-2 date text-light"
             >
               <span>{{ portfolio.date }} • {{ portfolio.category }}</span>
             </div>
@@ -53,8 +50,7 @@
 
           <div class="text-center pb-3">
             <hr
-              class="mt-1 mb-3"
-              :class="pgray"
+              class="mt-1 mb-3 pgray"
             />
             <button class="btn w-25 mr-3" @click="open(portfolio.github)">
               github

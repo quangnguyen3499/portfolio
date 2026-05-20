@@ -304,4 +304,162 @@ export default {
       description: "A comprehensive real estate platform with high-quality imagery, advanced filtering, and a sleek user interface. Resolves missing media assets efficiently using custom functional links."
     }
   ],
+  experiments: [
+    {
+      name: "Third Party OCR Document Analysis",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["OCR", "Document Parsing", "Third Party AI", "Python"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/third-party-ocr-document-analysis/",
+      description: "Uses Third Party AI's OCR capabilities to extract unstructured text from PDF documents and images for analysis."
+    },
+    {
+      name: "Open-class Object Detection (SAM)",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1527474305487-b87b222841cc?q=80&w=2074&auto=format&fit=crop" }
+      ],
+      technologies: ["Computer Vision", "Segment Anything Model", "PyTorch"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/ai-frame-script/?__theme=light",
+      description: "Upload an image and click on any object to automatically detect and segment it without being limited to predefined categories."
+    },
+    {
+      name: "AI-Powered Fracture Detection",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["Medical AI", "Computer Vision", "Deep Learning"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/ai-bone-fracture-detection/",
+      description: "Automatically detects and highlights broken bones in X-ray images with high accuracy to assist radiologists."
+    },
+    {
+      name: "CV Parser System",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["NLP", "Information Extraction", "Resume Analysis"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/cvparser",
+      description: "Extracts key metadata and structured information automatically from uploaded PDF CVs/resumes."
+    },
+    {
+      name: "Analyze the Object on Image",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["Computer Vision", "Object Detection", "Image Analytics"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/computer-vision",
+      description: "Applies computer vision models in real-world scenarios to detect and analyze object positions and classifications."
+    },
+    {
+      name: "Semantic Search for Travel Place",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["Semantic Search", "Wikitravel", "Embeddings"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/travel-search",
+      description: "Applies semantic search technologies on Wikitravel database for highly relevant and contextual search queries."
+    },
+    {
+      name: "Natural Language Processing Toolkit",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop" }
+      ],
+      technologies: ["NLP", "Text Processing", "Tokenization"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/nlp-toolkit",
+      description: "A comprehensive toolbox specifically built for various Natural Language Processing tasks and analyses."
+    },
+    {
+      name: "Movies Recommendation System",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["Recommendation System", "Collaborative Filtering", "Python"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/recommendation-system",
+      description: "Recommends popular and relevant movies to users based on preferences and similarity matching."
+    },
+    {
+      name: "Product Search (CLIP + GroundingDINO)",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["CLIP", "GroundingDINO", "Semantic Text Queries"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/product-search-v2",
+      description: "AI-powered product search combining CLIP semantic text queries and GroundingDINO for multi-object detection."
+    },
+    {
+      name: "OCR for Prescription",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["OCR", "Medical Prescriptions", "Text Extraction"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/ocr",
+      description: "Extracts medical instructions and crucial text information from prescription or medical bill images."
+    },
+    {
+      name: "AI Coaching Platform",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["LLM", "Speech-to-Text", "Insurance AI Coach"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/ai-coaching-project/",
+      description: "Conversational training solution for advisors enabling text/voice interactions with an AI coach and session evaluations."
+    },
+    {
+      name: "Music Recommendation System",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1614680376593-902f74fa0d41?q=80&w=2074&auto=format&fit=crop" }
+      ],
+      technologies: ["Recommendation System", "Spotify API", "Music Embeddings"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/recommendation-system",
+      description: "Recommends new music based on song characteristics retrieved from the Spotify web API database."
+    },
+    {
+      name: "Extract Information from Invoice Image",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop" }
+      ],
+      technologies: ["OCR", "Invoice Parsing", "Data Extraction"],
+      category: "AI Service",
+      date: "AI Lab",
+      github: "",
+      visit: "https://experiment.saigontechnology.vn/invoice",
+      description: "Extracts key invoice metadata like total cost, vendor details, and itemized billing elements from images."
+    }
+  ],
 };

@@ -4,6 +4,7 @@
     <main class="main">
       <Home @scroll="scrollTo" />
       <Portfolio id="portfolio" />
+      <Experiments id="experiments" />
       <About id="about" />
       <Skills id="skills" />
       <Contact id="contact" />
@@ -18,6 +19,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Portfolio from "./components/Portfolio";
+import Experiments from "./components/Experiments";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -31,6 +33,7 @@ export default {
     About,
     Skills,
     Portfolio,
+    Experiments,
     Contact,
     Footer,
   },
@@ -44,7 +47,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      ["about", "contact", "skills", "portfolio"].forEach((l) => {
+      ["about", "contact", "skills", "portfolio", "experiments"].forEach((l) => {
         if (window.location.href.includes(l)) {
           const el = document.getElementById(l);
           if (el) {

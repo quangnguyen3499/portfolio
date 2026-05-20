@@ -16,6 +16,8 @@
         <i class="fas fa-bars"></i>
       </button>
       <nav class="navbar-menu collapse" id="navbarMenu">
+        <a class="nav-link" href="/portfolio" @click.prevent="$emit('scroll', 'portfolio')">Projects</a>
+        <a class="nav-link" href="/experiments" @click.prevent="$emit('scroll', 'experiments')">Experiments</a>
         <a class="nav-link" href="/about" @click.prevent="$emit('scroll', 'about')">About</a>
         <a class="nav-link" href="/skills" @click.prevent="$emit('scroll', 'skills')">Skills</a>
         <a class="nav-link" href="/contact" @click.prevent="$emit('scroll', 'contact')">Contact</a>
