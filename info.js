@@ -13,7 +13,7 @@ let info = {
       With over 4-years of expertise in the realm of software development, specializing in web development. I
       possess a strong command of various areas. My skill set includes proficiency in Python, Django Framework, JavaScript, 
       both non-relational and relational databases. Moreover, I have hands-on experience in front-end
-      development with VueJS, ReactJS, Bootstrap and mobile with React Native. I’m also familiar with Docker, AWS and GCP services.
+      development with VueJS, ReactJS, Bootstrap. I’m also familiar with Docker, AWS and GCP services.
       I have worked through projects about e-commerce, human resources, computer vision, data mining and finance.
       I always want to come up with innovative ideas and effective solutions. 
     `,
@@ -27,7 +27,7 @@ let info = {
       name: "Da Nang University of Science and Technology",
       place: "Da Nang, Viet Nam",
       date: "Aug 2017 - May 2022",
-      degree: "Bachelor in software engineering",
+      degree: "Bachelor in Information Technology",
       gpa: "3.0/4.0",
       description:
         "",
@@ -102,7 +102,7 @@ let info = {
         ],
       skills: [
         "HTML5", "CSS3", "Bootstrap", "JQuery", "JavaSript",
-        "TypeSript", "Ruby", "Ruby On Rails", "React Native",
+        "TypeSript", "Ruby", "Ruby On Rails",
         "Redux", "Firebase", "MySQL"
       ]
     }
@@ -134,11 +134,6 @@ let info = {
       title: "Cloud",
       info: ["AWS", "GCP"],
       icon: "fa fa-cloud"
-    },
-    {
-      title: "Mobile",
-      info: ["React Native"],
-      icon: "fa fa-mobile"
     },
     {
       title: "Data Analytic",
@@ -289,31 +284,6 @@ let info = {
         " BOOKSI is Ebook android app for easy read books."
     },
     {
-      name: "Quiet Weather",
-      title: "UI/UX Design",
-      pictures: [
-        {
-          img: require("./src/assets/designs/weather/Wooden Hand iPhone 12 Pro.png"),
-          title: "MoodBoard"
-        },
-        {
-          img: require("./src/assets/designs/weather/artboard.png"),
-          title: "show"
-        },
-        {
-          img: require("./src/assets/designs/weather/weather app react native.png"),
-          title: "components"
-        },
-      ],
-      technologies: ["Figma", "Illustration"],
-      category: "Visual Design",
-      github: "",
-      date: "Nov, 2021",
-      visit: "",
-      description:
-        "Quiet Weather is a react native app by openweathermap api, i designed the ui/ux and coding it in react native, enjoy it!"
-    },
-    {
       name: "Pill Reminder",
       title: "Pill Reminder - Mockup Design",
       pictures: [
@@ -339,50 +309,7 @@ let info = {
         "pill reminder app for nessecary drugs for the day."
     },
   ],
-  portfolio: [
-    {
-      name: "Badminton Recommendation System",
-      pictures: [
-        {
-          img: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=2070&auto=format&fit=crop"
-        }
-      ],
-      technologies: ["Python", "FastAPI", "VueJS", "LLM"],
-      category: "Web App",
-      date: "Apr, 2024",
-      github: "https://github.com/quangnguyen3499/badminton-system",
-      visit: "https://demo.com",
-      description: "A comprehensive recommendation system for badminton gear. Utilizes web scrapers to gather data and an AI model to analyze user inputs against the product database to provide personalized gear recommendations."
-    },
-    {
-      name: "Pygame Zanthor",
-      pictures: [
-        {
-          img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
-        }
-      ],
-      technologies: ["Python", "Pygame"],
-      category: "Game",
-      date: "Feb, 2026",
-      github: "https://github.com/quangnguyen3499/zanthor",
-      visit: "https://zanthor-game.com",
-      description: "A retro-style 2D game built with Python and Pygame. Features include physics, rendering, level progression, and complex gameplay logic."
-    },
-    {
-      name: "Real Estate Platform",
-      pictures: [
-        {
-          img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
-        }
-      ],
-      technologies: ["React", "TypeScript", "Node.js", "MongoDB"],
-      category: "Web App",
-      date: "May, 2026",
-      github: "https://github.com/quangnguyen3499/real-estate",
-      visit: "https://real-estate-demo.com",
-      description: "A comprehensive real estate platform with high-quality imagery, advanced filtering, and a sleek user interface. Resolves missing media assets efficiently using custom functional links."
-    }
-  ],
+  portfolio: [],
 };
 
 export default info;

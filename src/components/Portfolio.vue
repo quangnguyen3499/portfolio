@@ -5,7 +5,6 @@
     <div class="section-inner">
       <header class="section-header" data-aos="fade" data-aos-once="true" data-aos-duration="600">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">A selection of my recent side projects</p>
       </header>
 
       <div class="row" style="display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px;">
@@ -18,7 +17,6 @@
           <Card
             :style="{ 'transition-delay': (idx % 3) / 4.2 + 's' }"
             :portfolio="portfolio"
-            @show="showModalFn"
             data-aos="fade-up"
             data-aos-offset="100"
             data-aos-delay="10"

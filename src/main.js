@@ -19,7 +19,13 @@ Vue.use(VueParallaxJs)
 Vue.config.productionTip = false
 
 const routes = [
-  { path: '/'}
+  { path: '/' },
+  { path: '/about' },
+  { path: '/portfolio' },
+  { path: '/skills' },
+  { path: '/contact' },
+  { path: '/blogs' },
+  { path: '/blogs/:slug' }
 ]
 
 const router = new VueRouter({

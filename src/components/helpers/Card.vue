@@ -1,56 +1,50 @@
 <template>
-  <div class="my-3 mx-3">
-    <div
-      class="card smcard pcard-dark"
-    >
-      <div style="height: 180px;">
-        <img
-          class="card-img-top"
-          :src="portfolio.pictures[0].img"
-          alt="Card image cap"
-        />
+  <article class="project-card smcard">
+    <div class="project-media">
+      <img :src="portfolio.pictures[0].img" :alt="portfolio.name" />
+      <span class="project-category">{{ portfolio.category }}</span>
+    </div>
+
+    <div class="project-body">
+      <div class="project-head">
+        <h3 class="project-title">{{ portfolio.name }}</h3>
+        <span class="project-date">{{ portfolio.date }}</span>
       </div>
-      <div class="card-body pborder-top">
-        <h5 class="title2">{{ portfolio.name }}</h5>
-        <div>
-          <div class="pb-1 bheight">
-            <span
-              class="badge mr-2 mb-2 "
-              v-for="tech in portfolio.technologies"
-              :key="tech"
-              >{{ tech }}</span
-            >
-          </div>
-          <p
-            class="title3 m-0 pb-2 pheight pt-1"
-            v-html="
-              portfolio.description.length > 100
-                ? portfolio.description.substring(0, 105) + '...'
-                : portfolio.description
-            "
-          >
-          </p>
-        </div>
-        <div class="text-center mt-2">
-          <button
-            href=""
-            class="btn-sm btn btn-outline-secondary no-outline"
-            @click.prevent="showModal"
-          >
-            read more
-          </button>
-          <button
-            href="#"
-            class="btn-sm btn btn-outline-secondary no-outline ml-4"
-            v-if="portfolio.visit"
-            @click.prevent="open(portfolio.visit)"
-          >
-            visit website
-          </button>
-        </div>
+
+      <p class="project-description">{{ portfolio.description }}</p>
+
+      <div class="project-tags">
+        <span
+          v-for="tech in portfolio.technologies"
+          :key="tech"
+          class="project-tag"
+        >
+          {{ tech }}
+        </span>
+      </div>
+
+      <div class="project-actions">
+        <button
+          v-if="portfolio.github"
+          class="project-btn ghost"
+          type="button"
+          @click.prevent="open(portfolio.github)"
+        >
+          <i class="fab fa-github"></i>
+          <span>Source</span>
+        </button>
+        <button
+          v-if="portfolio.visit"
+          class="project-btn primary"
+          type="button"
+          @click.prevent="open(portfolio.visit)"
+        >
+          <i class="fa fa-external-link-alt"></i>
+          <span>Demo</span>
+        </button>
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -59,145 +53,190 @@ export default {
   props: {
     portfolio: {
       type: Object,
+      required: true,
     },
   },
   methods: {
     open(url) {
       window.open(url, "_blank");
     },
-    showModal() {
-      this.$emit("show", this.portfolio);
-    },
   },
 };
 </script>
 
 <style scoped>
-img {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
+.project-card {
+  height: 100%;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015)), var(--surface-elevated);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.img-div img {
-  /* object-fit: cover;
-    overflow: hidden; */
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  /* object-position: 50% 120%;
-    max-width: 300px !important; */
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 211, 238, 0.28);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
 }
 
-.bheight {
-  height: 65px;
-  overflow: auto;
+.project-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  overflow: hidden;
 }
 
-.pheight {
-  height: 110px;
-  max-height: 130px;
-  overflow: auto;
-  text-align: justify;
-}
-
-div.img-div {
-  position: absolute;
+.project-media img {
   width: 100%;
   height: 100%;
-}
-.pborder-top {
-  border-top: 1px solid var(--border);
-}
-
-.pcard {
-  background-color: rgb(255, 255, 255);
-  border-radius: 7px;
-  border: none;
-  box-shadow: 1px 1px 12px rgb(233, 233, 233);
-  transition: all 0.5s;
-  height: 460px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
-.pcard:hover {
-  transition: all 0.5s;
-  /* cursor: pointer; */
-  box-shadow: 1px 1px 15px rgb(216, 216, 216);
+.project-card:hover .project-media img {
+  transform: scale(1.04);
+  opacity: 0.92;
 }
 
-.pcard-dark {
-  border-radius: 7px;
-  border: 1px solid var(--border);
-  background-color: var(--surface-elevated) !important;
-  /* box-shadow: 1px 1px 12px rgb(53, 53, 53); */
-  transition: all 0.5s;
-  height: 460px;
-}
-
-.pcard-dark:hover {
-  transition: all 0.5s;
-  /* cursor: pointer; */
-  box-shadow: 1px 1px 12px rgba(0,0,0,0.5);
-}
-
-.pcard-body {
-  border-top: 1px solid var(--border);
-  z-index: -1;
-  background-color: var(--surface-elevated);
-}
-
-.title {
-  font-size: 24px;
-  font-weight: 500;
-}
-.title1 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.title2 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.title3 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.badge {
-  background-color: var(--surface);
+.project-category {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(11, 16, 32, 0.78);
   color: var(--text);
+  font-size: 0.74rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+.project-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 750;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.project-date {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  opacity: 0.72;
+  padding-top: 3px;
+}
+
+.project-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 2px;
+}
+
+.project-tag {
+  color: #7dd3fc;
+  background: rgba(14, 165, 233, 0.11);
+  border: 1px solid rgba(125, 211, 252, 0.14);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.76rem;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 9px 13px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.project-btn:hover {
+  transform: translateY(-1px);
+}
+
+.project-btn.ghost {
+  background: transparent;
   border: 1px solid var(--border);
-  transition: all 0.5s;
-  font-weight: 500;
-  font-size: 13px;
+  color: var(--text-muted);
 }
 
-.btn {
-  border-color: var(--accent);
-  color: var(--accent);
+.project-btn.ghost:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.btn:hover {
-  background-color: var(--accent);
-  border-color: var(--accent);
+.project-btn.primary {
+  border: 1px solid rgba(34, 211, 238, 0.38);
+  background: rgba(34, 211, 238, 0.14);
+  color: var(--accent-hover);
+}
+
+.project-btn.primary:hover {
+  background: var(--accent);
   color: var(--bg);
 }
 
-.btn:focus {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: var(--bg);
-}
+@media (max-width: 576px) {
+  .project-card {
+    min-height: 0;
+  }
 
-.bg-dark3 {
-  background-color: rgb(82, 82, 82);
-}
+  .project-head {
+    flex-direction: column;
+    gap: 4px;
+  }
 
-.bg-dark4 {
-  background-color: #494e55 !important;
+  .project-actions {
+    flex-direction: column;
+  }
 }
 </style>

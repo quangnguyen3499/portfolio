@@ -1,10 +1,6 @@
 <template>
   <section class="about" id="about">
     <div class="section-inner">
-      <header class="section-header" data-aos="fade" data-aos-once="true" data-aos-duration="600">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Education, experience, certifications & awards</p>
-      </header>
       <div class="about-grid">
         <div class="about-col" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
           <Timeline :data="education" />
@@ -93,15 +89,9 @@ export default {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 32px;
   margin-bottom: 40px;
-}
-
-@media (max-width: 900px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .about-extra {

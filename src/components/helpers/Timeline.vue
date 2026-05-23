@@ -1,6 +1,10 @@
 <template>
   <div class="timeline-block">
-    <h3 class="timeline-heading">{{ data.title }}</h3>
+    <h3 class="timeline-heading">
+      <span></span>
+      {{ data.title }}
+    </h3>
+
     <ul class="timeline-list">
       <li
         v-for="(e, idx) in data.data"
@@ -11,20 +15,33 @@
         data-aos-once="true"
         data-aos-duration="400"
       >
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <div class="timeline-meta">
-            <span class="timeline-name">{{ e.name }}, {{ e.place }}</span>
-            <span class="timeline-role">{{ e.degree || e.position }}{{ e.gpa ? " (" + e.gpa + ")" : "" }}</span>
-            <span class="timeline-date">{{ e.date }}</span>
+        <span class="timeline-date">{{ e.date }}</span>
+
+        <article class="timeline-card">
+          <div class="timeline-card-header">
+            <h4 class="timeline-title">
+              {{ titleText(e) }}
+              <i class="fa fa-arrow-up timeline-arrow"></i>
+            </h4>
+            <span v-if="isEducation && e.degree" class="timeline-degree">{{ e.degree }}</span>
+            <span v-if="!isEducation && e.tagline" class="timeline-tagline">{{ e.tagline }}</span>
+            <span v-if="subtitleText(e)" class="timeline-subtitle">
+              {{ subtitleText(e) }}
+            </span>
           </div>
+
+          <p v-if="e.summary" class="timeline-summary">{{ e.summary }}</p>
+
           <div class="timeline-body" v-if="e.description && e.description.length">
-            <p v-for="d in e.description" :key="d" class="timeline-desc">{{ d }}</p>
+            <ul class="timeline-desc-list">
+              <li v-for="d in e.description" :key="d" class="timeline-desc">{{ d }}</li>
+            </ul>
           </div>
+
           <div class="timeline-tags" v-if="e.skills && e.skills.length">
             <span v-for="s in e.skills" :key="s" class="timeline-tag">{{ s }}</span>
           </div>
-        </div>
+        </article>
       </li>
     </ul>
   </div>
@@ -39,6 +56,23 @@ export default {
       required: true,
     },
   },
+  computed: {
+    isEducation() {
+      return this.data.title === "Education";
+    },
+  },
+  methods: {
+    titleText(entry) {
+      return this.isEducation ? entry.name : `${entry.position || entry.degree} · ${entry.name}`;
+    },
+    subtitleText(entry) {
+      if (this.isEducation) {
+        return [entry.gpa ? `GPA ${entry.gpa}` : "", entry.place].filter(Boolean).join(" · ");
+      }
+
+      return entry.place || "";
+    },
+  },
 };
 </script>
 
@@ -48,88 +82,141 @@ export default {
 }
 
 .timeline-heading {
-  font-size: 1rem;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
   color: var(--accent);
   margin-bottom: 1.25rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.timeline-heading span {
+  display: inline-block;
+  width: 52px;
+  height: 1px;
+  background: var(--text-muted);
+  opacity: 0.55;
 }
 
 .timeline-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  position: relative;
-  padding-left: 24px;
-  border-left: 2px solid var(--border);
+  display: grid;
+  gap: 28px;
 }
 
 .timeline-item {
-  position: relative;
-  padding-bottom: 1.75rem;
-}
-
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -30px;
-  top: 6px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px var(--surface);
-}
-
-.timeline-content {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  transition: border-color 0.2s;
-}
-
-.timeline-content:hover {
-  border-color: rgba(34, 211, 238, 0.25);
-}
-
-.timeline-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 8px 16px;
-  margin-bottom: 8px;
-}
-
-.timeline-name {
-  font-weight: 600;
-  color: var(--text);
-  font-size: 0.95rem;
-}
-
-.timeline-role {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) 1fr;
+  gap: 28px;
 }
 
 .timeline-date {
-  font-size: 0.8rem;
+  padding-top: 18px;
   color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.timeline-card {
+  padding: 18px 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.timeline-card:hover {
+  background: var(--surface-elevated);
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+
+.timeline-card-header {
+  margin-bottom: 12px;
+}
+
+.timeline-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+
+.timeline-arrow {
+  color: var(--accent);
+  font-size: 0.7rem;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.timeline-card:hover .timeline-arrow {
+  transform: translate(2px, -2px) rotate(45deg);
+}
+
+.timeline-subtitle {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.timeline-tagline {
+  display: block;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.timeline-degree {
+  display: block;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
   opacity: 0.9;
 }
 
+.timeline-summary {
+  max-width: 760px;
+  margin: 12px 0 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  opacity: 0.92;
+}
+
 .timeline-body {
-  margin-top: 8px;
+  margin-top: 12px;
+  max-width: 760px;
+}
+
+.timeline-desc-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
 }
 
 .timeline-desc {
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.65;
   color: var(--text-muted);
-  margin: 0 0 4px;
+  margin: 0;
 }
 
 .timeline-desc:last-child {
@@ -139,16 +226,31 @@ export default {
 .timeline-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;
+  gap: 8px;
+  margin-top: 18px;
 }
 
 .timeline-tag {
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 4px 10px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  background: rgba(34, 211, 238, 0.12);
+  color: #5eead4;
+  border-radius: 999px;
+}
+
+@media (max-width: 760px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .timeline-date {
+    padding-top: 0;
+  }
+
+  .timeline-card {
+    padding: 16px;
+  }
 }
 </style>

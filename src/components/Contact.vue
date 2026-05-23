@@ -11,10 +11,6 @@
             <i class="fa fa-envelope"></i>
             <span>{{ contactEmail }}</span>
           </a>
-          <a :href="`tel:${phoneLink}`" class="contact-link">
-            <i class="fa fa-phone"></i>
-            <span>{{ contactPhone }}</span>
-          </a>
         </div>
         <form class="contact-form" @submit.prevent="sendEmail" data-aos="fade-up" data-aos-once="true" data-aos-duration="500" data-aos-delay="80">
           <div class="form-group">
@@ -52,8 +48,6 @@ export default {
   data() {
     return {
       contactEmail: this.info.email,
-      contactPhone: this.info.phone,
-      phoneLink: this.info.phone.replace(/\s|\(|\)/g, ""),
       email: "",
       name: "",
       text: "",

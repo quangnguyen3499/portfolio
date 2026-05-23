@@ -1,15 +1,14 @@
 export default {
-  name: "Nguyen Dinh Bao Quang",
+  name: "Quang Nguyen Dinh Bao",
   logo_name: "Quang Nguyen",
   title: "Software Engineer",
   email: "ndinhbaoquang@gmail.com",
-  phone: "(+84) 705248038",
   flat_picture: require("./assets/me.png"),
   config: {
     use_cookies: true,
     navbar: { blur: false },
   },
-  description: `With over 5 years in software development, I specialize in web development, proficient in Python, JavaScript, Django, Flask, VueJS, ReactJS, and ETL technologies. My expertise spans AI development with LLMs, web responsiveness, and mobile app development using React Native. I have experience with AWS, GCP, and have worked on diverse projects, including e-commerce, HR, computer vision, finance, and AI-powered applications. Continuously researching, I integrate the latest technologies to deliver innovative and effective solutions.`,
+  description: `With over 6 years in software development, I specialize in web development, proficient in Python, JavaScript, Django, Flask, VueJS, ReactJS, and ETL technologies. My expertise spans AI development with LLMs, web responsiveness. I have experience with AWS, GCP, and have worked on diverse projects, including e-commerce, HR, computer vision, finance, and AI-powered applications. Continuously researching, I integrate the latest technologies to deliver innovative and effective solutions.`,
   links: {
     linkedin: "https://www.linkedin.com/in/quang-nguyen-513774195",
     github: "https://github.com/quangnguyen3499",
@@ -20,7 +19,7 @@ export default {
       name: "Da Nang University of Science and Technology",
       place: "Da Nang, Viet Nam",
       date: "Aug 2017 - May 2022",
-      degree: "Bachelor in Software Engineering",
+      degree: "Bachelor in Information Technology",
       gpa: "3.0/4.0",
       description: [],
       skills: ["Software Engineering", "Web Programming", "Embedded Programming", "Back-end Programming"],
@@ -28,123 +27,46 @@ export default {
   ],
   experience: [
     {
-      name: "ERP System",
-      place: "Australia",
-      date: "Apr 2025 – Present",
-      position: "Developer",
+      name: "Saigon Technology",
+      tagline: "Fintech, ERP, and AI-powered backend/data platforms",
+      place: "Da Nang, Viet Nam",
+      date: "Nov 2022 - Present",
+      position: "Software/Data Engineer",
+      summary: "Built backend, data, and automation systems for fintech reporting, payroll operations, and AI-assisted document workflows.",
       description: [
-        "Developed and maintained a Python application for data processing, evaluation, and integration with external services.",
-        "Developed, deployed, and self-hosted the n8n automation platform from scratch (server, environment, security, integrations).",
-        "Designed and built n8n workflows to automate payroll data sync, notifications, file transfers, and error handling.",
-        "Integrated OpenAI API for AI-driven tasks: text summarization, document analysis (PDF, image), and data extraction.",
-        "Created stored procedures for calculation and aggregation; generated reports (timesheets, expenses, error logs) stored in S3.",
+        "Automated financial reporting pipelines integrating Snowflake, Kafka, Salesforce, and banking systems, eliminating 50% of manual operational workload through scalable Airflow orchestration.",
+        "Reduced payroll operational costs by 20% and travel time by 30% by designing workforce optimization and ERP automation workflows using Python, SQL Server, and AWS.",
+        "Built event-driven backend services and ETL pipelines using Python, Kafka, Airflow, and AWS for distributed fintech and payroll processing systems.",
+        "Developed LLM-powered enrichment pipelines using OpenAI and LangChain for structured document processing, data linking, and AI-assisted workflow automation.",
       ],
-      skills: ["Python", "SQL Server", "Pandas", "Docker", "n8n", "OpenAI API", "AWS Lambda", "ECR", "ECS", "EC2", "Textract", "OpenSearch"],
+      skills: ["Python", "Airflow", "Kafka", "Snowflake", "Salesforce", "SQL Server", "AWS", "OpenAI", "LangChain", "ETL"],
     },
     {
-      name: "Finance System",
-      place: "US",
-      date: "Jan 2023 – Present",
-      position: "Developer",
+      name: "Madison Technology",
+      tagline: "Financial and e-commerce platforms for SEA markets",
+      place: "Da Nang, Viet Nam",
+      date: "Apr 2022 - Oct 2022",
+      position: "Backend Engineer",
+      summary: "Delivered backend APIs and real-time services for distributed financial systems.",
       description: [
-        "Developed and maintained Airflow DAGs for data processing, report generation, and external service integration.",
-        "Implemented Test-Driven Development; tested DAGs, documented test cases, and generated outcome reports.",
-        "Enhanced report dashboard performance and UX using Jinja2, JQuery, HTML, and CSS.",
-        "Successfully migrated system to a new third-party platform, improving performance and efficiency.",
+        "Built production-grade Django REST APIs and real-time backend communication services using Kafka and gRPC for distributed financial systems.",
+        "Improved backend reliability and delivery quality through automated testing, Pytest-based validation, and cross-team backend integration workflows.",
       ],
-      skills: ["Python", "Jinja2", "JQuery", "Pandas", "Airflow", "SQL", "Docker", "AWS ECR", "ECS", "Kafka", "Snowflake", "Salesforce", "Datadog"],
+      skills: ["Python", "Django", "Django REST Framework", "Kafka", "gRPC", "Pytest", "AWS", "Docker", "MySQL", "PostgreSQL"],
     },
     {
-      name: "Job Search System",
-      place: "US",
-      date: "Mar 2025 – Apr 2025",
-      position: "Developer",
+      name: "Rikai Technology",
+      tagline: "Enterprise systems and OCR-integrated automation platforms",
+      place: "Da Nang, Viet Nam",
+      date: "Jan 2021 - Mar 2022",
+      position: "Backend Engineer",
+      summary: "Built enterprise backend modules, crawling pipelines, and OCR automation for Japanese business platforms.",
       description: [
-        "Developed and maintained ETL pipelines to collect data from multiple sources and integrate with external services.",
-        "Integrated LLM to generate missing data from crawled data; linked data between services for consistency.",
+        "Built backend modules and scheduled crawling pipelines using Python, Ruby on Rails, and PostgreSQL for Japanese enterprise platforms.",
+        "Achieved up to 95% automated test coverage across web crawling and employee evaluation systems, improving production reliability and reducing regression issues.",
+        "Integrated OCR workflows using Google Cloud Vision for image-based PDF processing and enterprise document automation.",
       ],
-      skills: ["Python", "Flask", "Pandas", "Langchain", "PostgreSQL", "Docker", "AWS ECR", "SNS", "S3", "Snowflake"],
-    },
-    {
-      name: "Chat Widget with AI",
-      place: "UK",
-      date: "Nov 2023 – Apr 2024",
-      position: "Developer",
-      description: [
-        "Implemented RESTful APIs and WebSocket using FastAPI for real-time communication and chat module.",
-        "Used Celery for periodic tasks and Redis for caching; designed PostgreSQL schemas and unit tests with Pytest.",
-        "Integrated AI module (Langchain, GPT-3.5 Turbo, GPT-4); packaged with Docker and documented the project.",
-      ],
-      skills: ["Python", "FastAPI", "Jinja2", "Celery", "Redis", "PostgreSQL", "OpenAI", "WebSocket", "Docker", "AWS ECS", "CloudWatch", "CodeCommit"],
-    },
-    {
-      name: "SDK Authentication",
-      place: "Australia",
-      date: "May 2023 – Jun 2023",
-      position: "Developer",
-      description: [
-        "Developed Python SDK for authentication (client_credentials, authorization_code, PKCE).",
-        "Built starter kit with Flask, Jinja2, JQuery, HTML, CSS; RESTful APIs, unit tests with Pytest.",
-        "Worked with Australian client to gather requirements and integrate features.",
-      ],
-      skills: ["Python", "Flask", "Jinja2", "HTML5", "CSS3", "JQuery", "Bootstrap", "Pytest"],
-    },
-    {
-      name: "Face Recognition",
-      place: "Viet Nam",
-      date: "Nov 2022 – Present",
-      position: "Developer",
-      description: [
-        "Designed and developed UI/UX web to collect data and interact with AI systems using Python and Django.",
-        "Implemented RESTful APIs with Django Rest Framework; front-end with HTML, CSS, Bootstrap, JavaScript.",
-        "Applied Kafka for data transfer, designed PostgreSQL schemas, unit tests (90% coverage), Docker, EC2 deployment.",
-      ],
-      skills: ["Python", "Django", "DRF", "PostgreSQL", "Apache Kafka", "Redis", "MinIO", "Celery"],
-    },
-    {
-      name: "Loan System",
-      place: "Indonesia",
-      date: "Aug 2022 – Oct 2022",
-      position: "Developer",
-      description: [
-        "Developed back-end with Python and Django Rest Framework; implemented user restriction module.",
-        "Applied Apache Kafka and gRPC for real-time communication between modules; unit tests with Pytest.",
-      ],
-      skills: ["Python", "Django", "DRF", "PostgreSQL", "Apache Kafka", "gRPC"],
-    },
-    {
-      name: "Grocery eCommerce Platform",
-      place: "Philippines",
-      date: "Apr 2022 – Jul 2022",
-      position: "Developer",
-      description: [
-        "Developed back-end with Python, Django; designed PostgreSQL schemas for rating module.",
-        "Implemented RESTful APIs with DRF; unit tests with Pytest and bug fixes.",
-      ],
-      skills: ["Python", "Django", "DRF", "PostgreSQL", "ReactJS", "Bootstrap"],
-    },
-    {
-      name: "Web Crawler",
-      place: "Japan",
-      date: "Jan 2022 – Mar 2022",
-      position: "Developer",
-      description: [
-        "Implemented RESTful APIs with Django Rest Framework; designed PostgreSQL schemas and optimized queries.",
-        "Unit tests with Pytest (~95% coverage); back-end features: data crawler, user login/registration, user management.",
-      ],
-      skills: ["Python", "Django", "DRF", "PostgreSQL", "MySQL", "ReactJS", "Bootstrap"],
-    },
-    {
-      name: "Employee Evaluation Platform",
-      place: "Japan",
-      date: "Jan 2021 – Oct 2021",
-      position: "Developer",
-      description: [
-        "Implemented RESTful APIs with Ruby on Rails; front-end with VueJS (admin dashboard, evaluation page).",
-        "Researched and implemented Google OCR API for text detection in image-based PDFs.",
-        "Back-end: user auth, user management, file upload/storage, text detection, evaluation, billing. Project scored 8.5/10 customer satisfaction.",
-      ],
-      skills: ["Ruby", "Ruby on Rails", "VueJS", "HTML5", "CSS3", "JQuery", "Bootstrap", "Google OCR API", "MySQL"],
+      skills: ["Python", "Ruby on Rails", "PostgreSQL", "Web Crawling", "Google Cloud Vision", "OCR", "Django", "MySQL"],
     },
   ],
   skills: [
@@ -161,6 +83,7 @@ export default {
     { name: "TOEIC", detail: "860", date: "" },
     { name: "Software Engineer Certiticate", detail: "Hackerrank", url: "https://www.hackerrank.com/certificates/d7528dc539d9" },
     { name: "SQL (Intermediate) Certificate", detail: "Hackerrank", url: "https://www.hackerrank.com/certificates/befe7d0b8296" },
+    { name: "Rest API (Intermediate) Certificate", detail: "Hackerrank", url: "https://www.hackerrank.com/certificates/8446b000fd59" },
   ],
   awards: [
     { name: "3rd prize of IOT-AI Hackathon 2019 Da Nang" },
@@ -236,21 +159,6 @@ export default {
       description: "BOOKSI is Ebook android app for easy read books.",
     },
     {
-      name: "Quiet Weather",
-      title: "UI/UX Design",
-      pictures: [
-        { img: require("./assets/designs/weather/Wooden Hand iPhone 12 Pro.png"), title: "MoodBoard" },
-        { img: require("./assets/designs/weather/artboard.png"), title: "show" },
-        { img: require("./assets/designs/weather/weather app react native.png"), title: "components" },
-      ],
-      technologies: ["Figma", "Illustration"],
-      category: "Visual Design",
-      github: "",
-      date: "Nov, 2021",
-      visit: "",
-      description: "Quiet Weather is a react native app by openweathermap api, i designed the ui/ux and coding it in react native, enjoy it!",
-    },
-    {
       name: "Pill Reminder",
       title: "Pill Reminder - Mockup Design",
       pictures: [
@@ -268,198 +176,99 @@ export default {
   ],
   portfolio: [
     {
-      name: "Badminton Recommendation System",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["Python", "FastAPI", "VueJS", "LLM"],
-      category: "Web App",
-      date: "Apr, 2024",
-      github: "https://github.com/quangnguyen3499/badminton-system",
-      visit: "https://demo.com",
-      description: "A comprehensive recommendation system for badminton gear. Utilizes web scrapers to gather data and an AI model to analyze user inputs against the product database to provide personalized gear recommendations."
-    },
-    {
-      name: "Pygame Zanthor",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["Python", "Pygame"],
-      category: "Game",
-      date: "Feb, 2026",
-      github: "https://github.com/quangnguyen3499/zanthor",
-      visit: "https://zanthor-game.com",
-      description: "A retro-style 2D game built with Python and Pygame. Features include physics, rendering, level progression, and complex gameplay logic."
-    },
-    {
-      name: "Real Estate Platform",
+      name: "Real Estate",
       pictures: [
         { img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" }
       ],
-      technologies: ["React", "TypeScript", "Node.js", "MongoDB"],
+      technologies: ["React", "TypeScript", "AI-assisted Development"],
       category: "Web App",
-      date: "May, 2026",
-      github: "https://github.com/quangnguyen3499/real-estate",
-      visit: "https://real-estate-demo.com",
-      description: "A comprehensive real estate platform with high-quality imagery, advanced filtering, and a sleek user interface. Resolves missing media assets efficiently using custom functional links."
-    }
+      github: "https://github.com/quangnguyen3499/vibecode-real_estate",
+      visit: "https://vibecode-real-estate.vercel.app/",
+      description: "An AI-assisted real estate showcase, focused on property browsing, clean visual presentation, and a responsive user experience."
+    },
+    {
+      name: "Car Showroom",
+      pictures: [
+        { img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083&auto=format&fit=crop" }
+      ],
+      technologies: ["React", "TypeScript", "AI-assisted Development"],
+      category: "Web App",
+      github: "https://github.com/quangnguyen3499/vibecode-car_showroom",
+      visit: "https://vibecode-car-showroom.vercel.app/",
+      description: "An AI-assisted car showroom web app with polished vehicle presentation, showroom-style browsing, and responsive UI patterns."
+    },
   ],
-  experiments: [
+  blogs: [
     {
-      name: "Third Party OCR Document Analysis",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["OCR", "Document Parsing", "Third Party AI", "Python"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/third-party-ocr-document-analysis/",
-      description: "Uses Third Party AI's OCR capabilities to extract unstructured text from PDF documents and images for analysis."
+      id: 1,
+      title: "Building Scalable ETL Pipelines with Apache Airflow",
+      category: "Data Engineering",
+      date: "May 15, 2026",
+      readTime: "5 min read",
+      excerpt: "An in-depth look at designing and scaling robust ETL workflows using Apache Airflow, focusing on dependency management, task retries, and data consistency.",
+      content: `
+        <h3>Introduction to Airflow</h3>
+        <p>In modern data engineering, building pipelines that can handle large scale data, execute reliably, and recover from failures is critical. Apache Airflow has emerged as the industry standard for workflow orchestration. In this post, we explore how to design ETL workflows that scale efficiently.</p>
+        
+        <h3>Designing Idempotent DAGs</h3>
+        <p>One of the core principles of reliable pipelines is idempotency. A DAG (Directed Acyclic Graph) is idempotent if running it multiple times with the same input parameters yields the identical output state. This prevents duplicate records in databases and ensures consistency even after manual re-runs.</p>
+        
+        <h3>Best Practices for Scaling</h3>
+        <ul>
+          <li><strong>Keep tasks atomic:</strong> Each task should do one thing, like download data, transform data, or load data. Avoid mixing responsibilities.</li>
+          <li><strong>Use the database connection pool:</strong> Ensure task instances do not overwhelm database connections by leveraging Airflow connections and pools.</li>
+          <li><strong>Configure proper retry logic:</strong> Setup task retries with exponential backoffs to handle temporary external API or network downtime.</li>
+        </ul>
+        
+        <h3>Conclusion</h3>
+        <p>By designing idempotent DAGs and separating processing layers from orchestration, you can scale data operations with confidence and maintain highly reliable system monitoring.</p>
+      `
     },
     {
-      name: "Open-class Object Detection (SAM)",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1527474305487-b87b222841cc?q=80&w=2074&auto=format&fit=crop" }
-      ],
-      technologies: ["Computer Vision", "Segment Anything Model", "PyTorch"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/ai-frame-script/?__theme=light",
-      description: "Upload an image and click on any object to automatically detect and segment it without being limited to predefined categories."
+      id: 2,
+      title: "Mastering State Management in Vue 3: Vuex vs. Pinia",
+      category: "Frontend",
+      date: "April 28, 2026",
+      readTime: "4 min read",
+      excerpt: "Comparing state management solutions in the Vue ecosystem. We analyze architectural differences, performance, and typescript integration between Vuex and Pinia.",
+      content: `
+        <h3>The Evolution of State in Vue</h3>
+        <p>State management is a core consideration of complex web applications. For years, Vuex was the default solution for Vue developers. However, Pinia has now become the official recommendation for Vue 3. Let's compare their designs.</p>
+        
+        <h3>Why Pinia Wins</h3>
+        <p>Pinia offers a lighter, cleaner developer experience compared to Vuex:</p>
+        <ul>
+          <li><strong>No Mutations:</strong> In Pinia, you modify state directly in actions, removing boilerplate code.</li>
+          <li><strong>Full TypeScript Support:</strong> Pinia is typed by default, offering autocompletion and type checking out of the box.</li>
+          <li><strong>Modular by Design:</strong> Pinia encourages multiple small stores rather than a single monolithic state tree.</li>
+        </ul>
+        
+        <h3>Conclusion</h3>
+        <p>If you are starting a new Vue 3 project, Pinia is the clear choice. Its simplicity, TypeScript integration, and modularity offer a massive developer experience improvement.</p>
+      `
     },
     {
-      name: "AI-Powered Fracture Detection",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["Medical AI", "Computer Vision", "Deep Learning"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/ai-bone-fracture-detection/",
-      description: "Automatically detects and highlights broken bones in X-ray images with high accuracy to assist radiologists."
-    },
-    {
-      name: "CV Parser System",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["NLP", "Information Extraction", "Resume Analysis"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/cvparser",
-      description: "Extracts key metadata and structured information automatically from uploaded PDF CVs/resumes."
-    },
-    {
-      name: "Analyze the Object on Image",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["Computer Vision", "Object Detection", "Image Analytics"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/computer-vision",
-      description: "Applies computer vision models in real-world scenarios to detect and analyze object positions and classifications."
-    },
-    {
-      name: "Semantic Search for Travel Place",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["Semantic Search", "Wikitravel", "Embeddings"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/travel-search",
-      description: "Applies semantic search technologies on Wikitravel database for highly relevant and contextual search queries."
-    },
-    {
-      name: "Natural Language Processing Toolkit",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop" }
-      ],
-      technologies: ["NLP", "Text Processing", "Tokenization"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/nlp-toolkit",
-      description: "A comprehensive toolbox specifically built for various Natural Language Processing tasks and analyses."
-    },
-    {
-      name: "Movies Recommendation System",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["Recommendation System", "Collaborative Filtering", "Python"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/recommendation-system",
-      description: "Recommends popular and relevant movies to users based on preferences and similarity matching."
-    },
-    {
-      name: "Product Search (CLIP + GroundingDINO)",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["CLIP", "GroundingDINO", "Semantic Text Queries"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/product-search-v2",
-      description: "AI-powered product search combining CLIP semantic text queries and GroundingDINO for multi-object detection."
-    },
-    {
-      name: "OCR for Prescription",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["OCR", "Medical Prescriptions", "Text Extraction"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/ocr",
-      description: "Extracts medical instructions and crucial text information from prescription or medical bill images."
-    },
-    {
-      name: "AI Coaching Platform",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["LLM", "Speech-to-Text", "Insurance AI Coach"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/ai-coaching-project/",
-      description: "Conversational training solution for advisors enabling text/voice interactions with an AI coach and session evaluations."
-    },
-    {
-      name: "Music Recommendation System",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1614680376593-902f74fa0d41?q=80&w=2074&auto=format&fit=crop" }
-      ],
-      technologies: ["Recommendation System", "Spotify API", "Music Embeddings"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/recommendation-system",
-      description: "Recommends new music based on song characteristics retrieved from the Spotify web API database."
-    },
-    {
-      name: "Extract Information from Invoice Image",
-      pictures: [
-        { img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop" }
-      ],
-      technologies: ["OCR", "Invoice Parsing", "Data Extraction"],
-      category: "AI Service",
-      date: "AI Lab",
-      github: "",
-      visit: "https://experiment.saigontechnology.vn/invoice",
-      description: "Extracts key invoice metadata like total cost, vendor details, and itemized billing elements from images."
+      id: 3,
+      title: "Integrating Large Language Models into Automation Workflows using n8n",
+      category: "AI & Automation",
+      date: "March 12, 2026",
+      readTime: "6 min read",
+      excerpt: "Learn how to build intelligent, autonomous business workflows by integrating OpenAI's API into n8n visual automation pipelines without writing excessive glue code.",
+      content: `
+        <h3>AI-Driven Automation</h3>
+        <p>Automating repetitive tasks is valuable, but combining automation with AI makes it transformational. Integrating Large Language Models (LLMs) like GPT-4 into visual workflow tools like n8n allows systems to read, categorize, summarize, and respond to unstructured text automatically.</p>
+        
+        <h3>Sample Integration Scenarios</h3>
+        <p>Here are three high-impact integrations you can build:</p>
+        <ol>
+          <li><strong>Support Ticket Triage:</strong> Receive support emails, send them to OpenAI for sentiment and urgency classification, and direct them to the appropriate Slack channel.</li>
+          <li><strong>Resume Screening:</strong> Parse CV PDF uploads, extract key skills, match them against job specs, and save the score to Google Sheets.</li>
+          <li><strong>Automated Invoicing Audits:</strong> Scan invoice images with OCR, extract total cost, compare it with purchase orders, and flag anomalies automatically.</li>
+        </ol>
+        
+        <h3>Key Takeaways</h3>
+        <p>Visual orchestration tools combined with semantic AI intelligence allow teams to prototype and launch complex workflows in days rather than months, minimizing manual overhead.</p>
+      `
     }
-  ],
+  ]
 };
