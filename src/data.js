@@ -32,12 +32,12 @@ export default {
       place: "Da Nang, Viet Nam",
       date: "Nov 2022 - Present",
       position: "Software/Data Engineer",
-      summary: "Built backend, data, and automation systems for fintech reporting, payroll operations, and AI-assisted document workflows.",
+      summary: "Built backend, data, and automation systems for fintech reporting, payroll operations, and document workflows.",
       description: [
         "Automated financial reporting pipelines integrating Snowflake, Kafka, Salesforce, and banking systems, eliminating 50% of manual operational workload through scalable Airflow orchestration.",
         "Reduced payroll operational costs by 20% and travel time by 30% by designing workforce optimization and ERP automation workflows using Python, SQL Server, and AWS.",
         "Built event-driven backend services and ETL pipelines using Python, Kafka, Airflow, and AWS for distributed fintech and payroll processing systems.",
-        "Developed LLM-powered enrichment pipelines using OpenAI and LangChain for structured document processing, data linking, and AI-assisted workflow automation.",
+        "Developed LLM-powered enrichment pipelines using OpenAI and LangChain for structured document processing, data linking, and workflow automation.",
       ],
       skills: ["Python", "Airflow", "Kafka", "Snowflake", "Salesforce", "SQL Server", "AWS", "OpenAI", "LangChain", "ETL"],
     },
@@ -180,22 +180,22 @@ export default {
       pictures: [
         { img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" }
       ],
-      technologies: ["React", "TypeScript", "AI-assisted Development"],
+      technologies: ["React", "TypeScript"],
       category: "Web App",
       github: "https://github.com/quangnguyen3499/vibecode-real_estate",
       visit: "https://vibecode-real-estate.vercel.app/",
-      description: "An AI-assisted real estate showcase, focused on property browsing, clean visual presentation, and a responsive user experience."
+      description: "An real estate showcase, focused on property browsing, clean visual presentation, and a responsive user experience."
     },
     {
       name: "Car Showroom",
       pictures: [
         { img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083&auto=format&fit=crop" }
       ],
-      technologies: ["React", "TypeScript", "AI-assisted Development"],
+      technologies: ["React", "TypeScript"],
       category: "Web App",
       github: "https://github.com/quangnguyen3499/vibecode-car_showroom",
       visit: "https://vibecode-car-showroom.vercel.app/",
-      description: "An AI-assisted car showroom web app with polished vehicle presentation, showroom-style browsing, and responsive UI patterns."
+      description: "An car showroom web app with polished vehicle presentation, showroom-style browsing, and responsive UI patterns."
     },
   ],
   blogs: [

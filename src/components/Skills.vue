@@ -3,7 +3,6 @@
     <div class="section-inner">
       <header class="section-header" data-aos="fade" data-aos-once="true" data-aos-duration="600">
         <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Technologies and tools I work with</p>
       </header>
       <div class="skills-grid">
         <div

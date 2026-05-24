@@ -3,7 +3,6 @@
     <div class="section-inner">
       <header class="section-header" data-aos="fade" data-aos-once="true" data-aos-duration="600">
         <h2 class="section-title">Get in Touch</h2>
-        <p class="section-subtitle">Open to opportunities and collaboration. Send a message or reach out directly.</p>
       </header>
       <div class="contact-layout">
         <div class="contact-direct" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
