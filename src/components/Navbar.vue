@@ -43,7 +43,7 @@ export default {
     return {
       navItems: [
         { id: "about", label: "About", path: "/about" },
-        { id: "portfolio", label: "Projects", path: "/portfolio" },
+        // { id: "portfolio", label: "Projects", path: "/portfolio" },
         { id: "skills", label: "Skills", path: "/skills" },
         { id: "blogs", label: "Blogs", path: "/blogs" },
         { id: "contact", label: "Contact", path: "/contact" }

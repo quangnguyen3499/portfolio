@@ -12,7 +12,7 @@ export default {
   links: {
     linkedin: "https://www.linkedin.com/in/quang-nguyen-513774195",
     github: "https://github.com/quangnguyen3499",
-    resume: "https://drive.google.com/file/d/1YODf90aAQYzjZSer-KO_C_JKgWogK00m/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1D-Vk6kclSqFtilgont0oCM1KQpmcBjks/view?usp=sharing",
   },
   education: [
     {
@@ -20,7 +20,6 @@ export default {
       place: "Da Nang, Viet Nam",
       date: "Aug 2017 - May 2022",
       degree: "Bachelor in Information Technology",
-      gpa: "3.0/4.0",
       description: [],
       skills: ["Software Engineering", "Web Programming", "Embedded Programming", "Back-end Programming"],
     },

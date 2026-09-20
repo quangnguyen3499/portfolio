@@ -17,7 +17,7 @@
       <main v-else class="app-layout">
         <Home class="home-section" @scroll="scrollTo" />
         <About id="about" class="scroll-section" />
-        <Portfolio id="portfolio" class="scroll-section" />
+        <!-- <Portfolio id="portfolio" class="scroll-section" /> -->
         <Skills id="skills" class="scroll-section" />
         <Contact id="contact" class="scroll-section" />
         <Footer />
