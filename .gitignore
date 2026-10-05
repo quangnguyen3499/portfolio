@@ -25,3 +25,11 @@ yarn-error.log*
 *.sw?
 
 .env
+
+# Python automation
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env.news.local
+logs/

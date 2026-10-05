@@ -1,0 +1,47 @@
+[
+  {
+    "title": "storytold/photocraft",
+    "date": "2026-10-06",
+    "category": "Software",
+    "summary": "An open-source, clean-room reimplementation of Adobe Photoshop in pure Rust.",
+    "why_it_matters": "This project showcases the potential of Rust as a platform for building complex software applications.",
+    "source": "GitHub Trending",
+    "source_url": "https://github.com/storytold/photocraft"
+  },
+  {
+    "title": "QingYunA/answer-me-with-html",
+    "date": "2026-10-06",
+    "category": "AI",
+    "summary": "An agent skill that answers hard questions with a one-page HTML you can actually read.",
+    "why_it_matters": "This project demonstrates the potential of natural language processing and human-computer interaction.",
+    "source": "GitHub Trending",
+    "source_url": "https://github.com/QingYunA/answer-me-with-html"
+  },
+  {
+    "title": "nanaism/yomiyasu",
+    "date": "2026-10-06",
+    "category": "AI",
+    "summary": "An agent skill for refining AI-generated Japanese into natural Japanese.",
+    "why_it_matters": "This project showcases the potential of AI-generated content and its refinement.",
+    "source": "GitHub Trending",
+    "source_url": "https://github.com/nanaism/yomiyasu"
+  },
+  {
+    "title": "Dust: Pretraining Transformers Without Backpropagation",
+    "date": "2026-10-06",
+    "category": "AI",
+    "summary": "A method for pretraining transformers without backpropagation.",
+    "why_it_matters": "This project presents an alternative approach to transformer pretraining and its potential applications.",
+    "source": "Hacker News",
+    "source_url": "https://qlabs.sh/research/dust"
+  },
+  {
+    "title": "facebookincubator/muse-gadget-sdk",
+    "date": "2026-10-06",
+    "category": "Software",
+    "summary": "An open source SDK to build Muse gadgets.",
+    "why_it_matters": "This project provides a platform for developers to build innovative gadgets and applications.",
+    "source": "GitHub Trending",
+    "source_url": "https://github.com/facebookincubator/muse-gadget-sdk"
+  }
+]

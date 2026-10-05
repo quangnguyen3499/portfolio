@@ -45,7 +45,7 @@ export default {
         { id: "about", label: "About", path: "/about" },
         // { id: "portfolio", label: "Projects", path: "/portfolio" },
         { id: "skills", label: "Skills", path: "/skills" },
-        { id: "blogs", label: "Blogs", path: "/blogs" },
+        { id: "news", label: "News", path: "/news" },
         { id: "contact", label: "Contact", path: "/contact" }
       ],
       pillWidth: 0,
@@ -206,8 +206,8 @@ export default {
   }
 
   .nav-link {
-    font-size: 0.8rem;
-    padding: 6px 12px;
+    font-size: 0.75rem;
+    padding: 6px 8px;
   }
 }
 </style>
