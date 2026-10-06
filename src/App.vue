@@ -11,8 +11,8 @@
 
     <!-- Layout Wrapper -->
     <div class="container-fluid px-0">
-      <main v-if="isBlogRoute" class="app-layout">
-        <Blogs />
+      <main v-if="isNewsRoute" class="app-layout">
+        <News />
       </main>
       <main v-else class="app-layout">
         <Home class="home-section" @scroll="scrollTo" />
@@ -32,7 +32,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Portfolio from "./components/Portfolio";
-import Blogs from "./components/Blogs";
+import News from "./components/News";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ParticlesBg from "./components/helpers/ParticlesBg";
@@ -47,7 +47,7 @@ export default {
     About,
     Skills,
     Portfolio,
-    Blogs,
+    News,
     Contact,
     Footer,
     ParticlesBg
@@ -65,8 +65,8 @@ export default {
     };
   },
   computed: {
-    isBlogRoute() {
-      return this.$route.path.startsWith("/blogs");
+    isNewsRoute() {
+      return this.$route.path === "/news";
     },
     spotlightStyle() {
       return {
@@ -98,8 +98,8 @@ export default {
         this.observer = null;
       }
 
-      if (this.isBlogRoute) {
-        this.activeSection = "blogs";
+      if (this.isNewsRoute) {
+        this.activeSection = "news";
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
@@ -151,15 +151,10 @@ export default {
         this.$router.push(`/`).catch(() => {});
         window.scrollTo({ top: 0, behavior: "smooth" });
         this.activeSection = "about";
-      } else if (ele === "blogs") {
-        this.$router.push("/blogs").catch(() => {});
-        this.activeSection = "blogs";
+      } else if (ele === "news") {
+        this.$router.push(`/${ele}`).catch(() => {});
+        this.activeSection = ele;
       } else {
-        if (this.isBlogRoute) {
-          this.$router.push(`/${ele}`).catch(() => {});
-          return;
-        }
-
         this.scrollToSection(ele);
         if (this.$router.history.current.path !== `/${ele}`) {
           this.$router.push(`/${ele}`).catch(() => {});
