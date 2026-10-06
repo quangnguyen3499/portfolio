@@ -43,5 +43,50 @@
     "why_it_matters": "This project provides a platform for developers to build innovative gadgets and applications.",
     "source": "GitHub Trending",
     "source_url": "https://github.com/facebookincubator/muse-gadget-sdk"
+  },
+  {
+    "title": "Mistral Large 4 enters public preview",
+    "date": "2026-10-06",
+    "category": "AI & LLM",
+    "summary": "Mistral announced Large 4, a multimodal model with one trillion total parameters and 49 billion active parameters. The company says the model combines instruction following, reasoning, and agentic capabilities, with open weights planned for release later this month.",
+    "why_it_matters": "If the announced weights are released, engineers will be able to evaluate and self-host a frontier-scale model rather than relying only on hosted inference.",
+    "source": "Mistral AI",
+    "source_url": "https://mistral.ai/news/mistral-large-4/"
+  },
+  {
+    "title": "Polars 2.0 makes SQL and out-of-core execution first-class",
+    "date": "2026-10-06",
+    "category": "Data Engineering",
+    "summary": "Polars 2.0 introduces first-class SQL support, enables streaming execution and spill-to-disk by default, and adds a Map data type. The release also includes optimizer and engine improvements for analytical workloads.",
+    "why_it_matters": "These changes expand Polars for larger datasets and SQL-oriented workflows, while its stricter behavior can surface data issues earlier in a pipeline.",
+    "source": "Polars",
+    "source_url": "https://pola.rs/posts/release-polars-2/"
+  },
+  {
+    "title": "Parseable presents an open, columnar observability data lake",
+    "date": "2026-10-06",
+    "category": "Observability",
+    "summary": "Parseable describes a Rust-based observability platform for logs, metrics, and traces. Its architecture uses open columnar formats and object storage, with a self-hosted open-source deployment option.",
+    "why_it_matters": "Keeping telemetry in open formats and object storage can give teams more control over long-term retention and infrastructure choices.",
+    "source": "Parseable",
+    "source_url": "https://www.parseable.com/"
+  },
+  {
+    "title": "Gleam 1.19 changes its Erlang compilation target",
+    "date": "2026-10-05",
+    "category": "Programming Languages",
+    "summary": "Gleam 1.19 now generates Erlang abstract forms instead of Erlang source code. The project reports faster builds and more accurate source locations in runtime stack traces, alongside improvements to JavaScript output and tooling.",
+    "why_it_matters": "Compiler output changes can improve build speed and debugging quality without requiring application developers to change their source code.",
+    "source": "Gleam",
+    "source_url": "https://gleam.run/news/gleam-doesnt-compile-to-erlang-source-anymore/"
+  },
+  {
+    "title": "A practical rule for microbenchmark duration",
+    "date": "2026-10-05",
+    "category": "Performance",
+    "summary": "Aleksey Kladov suggests tuning microbenchmarks to run for roughly 300 milliseconds. That duration makes results easy to compare, reduces the influence of fixed startup costs, and still keeps repeated measurements quick.",
+    "why_it_matters": "A simple, repeatable benchmark target can make performance experiments easier to interpret without overcomplicating the measurement setup.",
+    "source": "Matklad",
+    "source_url": "https://matklad.github.io/2026/10/05/benchmark-milliseconds.html"
   }
 ]

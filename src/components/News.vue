@@ -82,7 +82,8 @@ export default {
       return this.publishedArticles.length === 0;
     },
     articles() {
-      return this.usingSamples ? this.sampleArticles : this.publishedArticles;
+      const articles = this.usingSamples ? this.sampleArticles : this.publishedArticles;
+      return articles.slice(0, 10);
     }
   },
   methods: {
