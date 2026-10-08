@@ -14,7 +14,7 @@ docker compose run --rm web /opt/healthchecks/manage.py createsuperuser
 
 Open <http://localhost:8000> and log in with the superuser email. Healthchecks sends the one-time sign-in link and configured alerts to the real mailbox.
 
-For Gmail, enable 2-Step Verification and create an App Password in Google Account security settings. Put that generated password in `HC_SMTP_PASSWORD`; do not use your regular Google password or commit `.env`. Gmail uses `smtp.gmail.com`, port `587`, STARTTLS (`HC_SMTP_USE_TLS=True`), and `HC_SMTP_USE_SSL=False`. The example is prefilled with `baoquanggogreen@gmail.com` as the SMTP user and sender; change both if using another mailbox.
+For Gmail, enable 2-Step Verification and create an App Password in Google Account security settings. Put that generated password in `HC_SMTP_PASSWORD`; do not use your regular Google password or commit `.env`. Gmail uses `smtp.gmail.com`, port `587`, STARTTLS (`HC_SMTP_USE_TLS=True`), and `HC_SMTP_USE_SSL=False`. Set `HC_SMTP_USER` and `HC_SMTP_FROM` to the Gmail account used to create the App Password.
 
 The previous setup used Mailpit. After adding SMTP settings, restart the stack with `docker compose down` followed by `docker compose up -d`. This preserves the Healthchecks database volume and existing checks. To verify delivery, request a fresh sign-in link or configure an email integration for a test check.
 
