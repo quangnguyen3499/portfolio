@@ -9,8 +9,13 @@ if [[ "$current_branch" != "main" ]]; then
 fi
 
 if [[ ! -f "$repo_root/.env.news.local" ]]; then
-  cp "$repo_root/.env.news.local.example" "$repo_root/.env.news.local"
-  printf 'Created %s. Edit it and set HC_PING_URL, then run this installer again.\n' "$repo_root/.env.news.local"
+  printf '%s\n' \
+    'OLLAMA_HOST=http://localhost:11434' \
+    'OLLAMA_MODEL=llama3.2:latest' \
+    'HC_PING_URL=http://localhost:8000/ping/REPLACE-WITH-CHECK-UUID' \
+    'GOOD_AI_LIST_FEED_URL=' > "$repo_root/.env.news.local"
+  chmod 600 "$repo_root/.env.news.local"
+  printf 'Created %s. Set HC_PING_URL, then run the installer again.\n' "$repo_root/.env.news.local"
   exit 1
 fi
 

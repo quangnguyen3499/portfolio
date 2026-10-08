@@ -5,7 +5,7 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 env_file="$repo_root/.env.news.local"
 
 if [[ ! -f "$env_file" ]]; then
-  printf 'Missing %s; copy .env.news.local.example and set HC_PING_URL.\n' "$env_file" >&2
+  printf 'Missing %s; run scripts/install-news-local.sh to initialize local scheduling.\n' "$env_file" >&2
   exit 1
 fi
 

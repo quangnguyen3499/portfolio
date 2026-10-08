@@ -16,20 +16,12 @@ services:
       timeout: 5s
       retries: 10
 
-  mailpit:
-    image: axllent/mailpit:latest
-    restart: unless-stopped
-    ports:
-      - "127.0.0.1:8025:8025"
-
   web:
     image: healthchecks/healthchecks:v4.4
     restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
-      mailpit:
-        condition: service_started
     environment:
       ALLOWED_HOSTS: localhost,127.0.0.1
       DB: postgres
@@ -39,11 +31,13 @@ services:
       DB_PORT: "5432"
       DB_USER: healthchecks
       DEBUG: "False"
-      DEFAULT_FROM_EMAIL: healthchecks@localhost
-      EMAIL_HOST: mailpit
-      EMAIL_PORT: "1025"
-      EMAIL_USE_SSL: "False"
-      EMAIL_USE_TLS: "False"
+      DEFAULT_FROM_EMAIL: ${HC_SMTP_FROM:-healthchecks@localhost}
+      EMAIL_HOST: ${HC_SMTP_HOST:-}
+      EMAIL_HOST_USER: ${HC_SMTP_USER:-}
+      EMAIL_HOST_PASSWORD: ${HC_SMTP_PASSWORD:-}
+      EMAIL_PORT: ${HC_SMTP_PORT:-587}
+      EMAIL_USE_SSL: ${HC_SMTP_USE_SSL:-False}
+      EMAIL_USE_TLS: ${HC_SMTP_USE_TLS:-True}
       EMAIL_USE_VERIFICATION: "False"
       PING_ENDPOINT: http://localhost:8000/ping/
       REGISTRATION_OPEN: "False"
