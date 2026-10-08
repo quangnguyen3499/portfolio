@@ -7,18 +7,18 @@
 	<key>ProgramArguments</key>
 	<array>
 		<string>/bin/bash</string>
-		<string>/Users/quangnguyen/Desktop/portfolio/scripts/run-news-local.sh</string>
+		<string>/path/to/repository/scripts/run-news-local.sh</string>
 	</array>
 	<key>StartInterval</key>
 	<integer>14400</integer>
 	<key>RunAtLoad</key>
 	<false/>
 	<key>WorkingDirectory</key>
-	<string>/Users/quangnguyen/Desktop/portfolio</string>
+	<string>/path/to/repository</string>
 	<key>StandardOutPath</key>
-	<string>/Users/quangnguyen/Desktop/portfolio/logs/news-agent.log</string>
+	<string>/path/to/repository/logs/news-agent.log</string>
 	<key>StandardErrorPath</key>
-	<string>/Users/quangnguyen/Desktop/portfolio/logs/news-agent-error.log</string>
+	<string>/path/to/repository/logs/news-agent-error.log</string>
 	<key>EnvironmentVariables</key>
 	<dict>
 		<key>PATH</key>

@@ -25,6 +25,7 @@ yarn-error.log*
 *.sw?
 
 .env
+.zshrc
 
 # Python automation
 __pycache__/
