@@ -33,6 +33,10 @@ fi
 mkdir -p "$repo_root/logs" "$HOME/Library/LaunchAgents"
 agent_file="$HOME/Library/LaunchAgents/com.quangnguyen.portfolio-news.plist"
 cp "$repo_root/ops/macos/com.quangnguyen.portfolio-news.plist" "$agent_file"
+/usr/libexec/PlistBuddy -c "Set :ProgramArguments:1 $repo_root/scripts/run-news-local.sh" "$agent_file"
+/usr/libexec/PlistBuddy -c "Set :WorkingDirectory $repo_root" "$agent_file"
+/usr/libexec/PlistBuddy -c "Set :StandardOutPath $repo_root/logs/news-agent.log" "$agent_file"
+/usr/libexec/PlistBuddy -c "Set :StandardErrorPath $repo_root/logs/news-agent-error.log" "$agent_file"
 plutil -lint "$agent_file"
 launchctl bootout "gui/$(id -u)" "$agent_file" 2>/dev/null || true
 launchctl bootstrap "gui/$(id -u)" "$agent_file"
