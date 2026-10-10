@@ -1,8 +1,0 @@
-sources:
-  hacker_news: true
-  good_ai_list: true
-  github_trending: true
-  good_ai_list_feed_url: ""
-news:
-  max_posts: 10
-  max_candidates: 12
