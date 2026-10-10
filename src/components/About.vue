@@ -1,39 +1,44 @@
 <template>
-  <section class="about" id="about">
-    <div class="section-inner">
-      <div class="about-grid">
-        <div class="about-col" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
-          <Timeline :data="education" />
-        </div>
-        <div class="about-col" data-aos="fade-up" data-aos-once="true" data-aos-duration="500" data-aos-delay="100">
-          <Timeline :data="experience" />
-        </div>
+  <section class="about-section" id="about">
+    <header class="section-header">
+      <h2 class="section-title">Education &amp; Experience</h2>
+      <p class="section-subtitle">Academic background, professional engineering history, certifications, and awards.</p>
+    </header>
+
+    <div class="about-grid">
+      <div class="about-col">
+        <Timeline :data="education" />
       </div>
-      <div class="about-extra" v-if="certifications.length || awards.length">
-        <div class="about-card" v-if="certifications.length" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
-          <h3 class="about-card-title">Certifications</h3>
-          <ul class="about-list">
-            <li v-for="(c, i) in certifications" :key="i">
-              <a v-if="c.url" :href="c.url" target="_blank" rel="noopener noreferrer" class="about-list-link">
-                <strong>{{ c.name || "—" }}</strong>
-                <span v-if="c.detail"> — {{ c.detail }}</span>
-                <span v-if="c.date" class="muted"> ({{ c.date }})</span>
-                <i class="fa fa-external-link-alt about-list-link-icon"></i>
-              </a>
-              <template v-else>
-                <strong>{{ c.name || "—" }}</strong>
-                <span v-if="c.detail"> — {{ c.detail }}</span>
-                <span v-if="c.date" class="muted"> ({{ c.date }})</span>
-              </template>
-            </li>
-          </ul>
-        </div>
-        <div class="about-card" v-if="awards.length" data-aos="fade-up" data-aos-once="true" data-aos-duration="500" data-aos-delay="80">
-          <h3 class="about-card-title">Awards</h3>
-          <ul class="about-list">
-            <li v-for="a in awards" :key="a.name">{{ a.name }}</li>
-          </ul>
-        </div>
+      <div class="about-col">
+        <Timeline :data="experience" />
+      </div>
+    </div>
+
+    <div class="about-extra" v-if="certifications.length || awards.length">
+      <div class="about-card" v-if="certifications.length">
+        <h3 class="about-card-title">Certifications</h3>
+        <ul class="about-list">
+          <li v-for="(c, i) in certifications" :key="i">
+            <a v-if="c.url" :href="c.url" target="_blank" rel="noopener noreferrer" class="about-list-link">
+              <strong>{{ c.name || "—" }}</strong>
+              <span v-if="c.detail"> — {{ c.detail }}</span>
+              <span v-if="c.date" class="muted"> ({{ c.date }})</span>
+              <i class="fa fa-external-link-alt about-list-link-icon"></i>
+            </a>
+            <template v-else>
+              <strong>{{ c.name || "—" }}</strong>
+              <span v-if="c.detail"> — {{ c.detail }}</span>
+              <span v-if="c.date" class="muted"> ({{ c.date }})</span>
+            </template>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-card" v-if="awards.length">
+        <h3 class="about-card-title">Awards</h3>
+        <ul class="about-list">
+          <li v-for="a in awards" :key="a.name">{{ a.name }}</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -58,68 +63,63 @@ export default {
 </script>
 
 <style scoped>
-.about {
-  padding: 80px 0;
-  background: var(--surface);
-}
-
-.section-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+.about-section {
+  padding: 0 0 32px;
 }
 
 .section-header {
-  text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
 }
 
 .section-subtitle {
-  font-size: 1rem;
   color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
-  margin-bottom: 40px;
+  gap: 28px;
+  margin-bottom: 24px;
 }
 
 .about-extra {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  gap: 16px;
 }
 
 .about-card {
-  background: var(--surface-elevated);
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 8px;
+  padding: 20px;
 }
 
 .about-card-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 12px;
+  margin: 0 0 10px;
 }
 
 .about-list {
   margin: 0;
-  padding-left: 1.25rem;
-  font-size: 0.9rem;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .about-list li {

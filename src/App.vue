@@ -6,20 +6,21 @@
     <!-- Canvas Particles -->
     <ParticlesBg />
 
-    <!-- Top floating glassmorphic navbar -->
-    <Navbar :active-section="activeSection" @scroll="scrollTo" />
+    <!-- Left Sidebar -->
+    <Sidebar :active-section="activeSection" @navigate="navigate" />
 
-    <!-- Layout Wrapper -->
-    <div class="container-fluid px-0">
-      <main v-if="isNewsRoute" class="app-layout">
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <main v-if="isNewsRoute" class="main-content">
         <News />
       </main>
-      <main v-else class="app-layout">
-        <Home class="home-section" @scroll="scrollTo" />
-        <About id="about" class="scroll-section" />
-        <!-- <Portfolio id="portfolio" class="scroll-section" /> -->
-        <Skills id="skills" class="scroll-section" />
-        <Contact id="contact" class="scroll-section" />
+      <main v-else-if="isProjectsRoute" class="main-content">
+        <Projects />
+      </main>
+      <main v-else class="main-content">
+        <About id="about" class="content-section" @scroll="scrollTo" />
+        <Skills id="skills" class="content-section" />
+        <Contact id="contact" class="content-section" />
         <Footer />
       </main>
     </div>
@@ -27,13 +28,12 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
-import Home from "./components/Home";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Portfolio from "./components/Portfolio";
+import Sidebar from "./components/Sidebar.vue";
 import News from "./components/News";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import About from "./components/About";
 import Footer from "./components/Footer";
 import ParticlesBg from "./components/helpers/ParticlesBg";
 
@@ -42,13 +42,12 @@ import info from "./data";
 export default {
   name: "App",
   components: {
-    Navbar,
-    Home,
-    About,
-    Skills,
-    Portfolio,
+    Sidebar,
     News,
+    Projects,
+    Skills,
     Contact,
+    About,
     Footer,
     ParticlesBg
   },
@@ -58,15 +57,21 @@ export default {
   data() {
     return {
       config: info.config,
-      activeSection: "about",
+      activeSection: "news",
       mouseX: 0,
       mouseY: 0,
-      observer: null
+      observer: null,
+      observerTimeout: null,
+      scrollTimeout: null,
+      isScrolling: false
     };
   },
   computed: {
     isNewsRoute() {
       return this.$route.path === "/news";
+    },
+    isProjectsRoute() {
+      return this.$route.path === "/projects";
     },
     spotlightStyle() {
       return {
@@ -75,7 +80,16 @@ export default {
     }
   },
   mounted() {
+    // Force scroll to top on mount with delay
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+    // Navigate to news by default
+    if (this.$route.path !== "/news") {
+      this.$router.push("/news").catch(() => {});
+    }
     this.syncRouteState();
+    window.addEventListener("scroll", this.handleScroll);
   },
   watch: {
     "$route.path"() {
@@ -86,6 +100,13 @@ export default {
     if (this.observer) {
       this.observer.disconnect();
     }
+    if (this.observerTimeout) {
+      clearTimeout(this.observerTimeout);
+    }
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     updateSpotlight(e) {
@@ -97,16 +118,28 @@ export default {
         this.observer.disconnect();
         this.observer = null;
       }
+      if (this.observerTimeout) {
+        clearTimeout(this.observerTimeout);
+        this.observerTimeout = null;
+      }
+      if (this.scrollTimeout) {
+        clearTimeout(this.scrollTimeout);
+        this.scrollTimeout = null;
+      }
 
-      if (this.isNewsRoute) {
-        this.activeSection = "news";
+      if (this.isNewsRoute || this.isProjectsRoute) {
+        this.activeSection = this.isNewsRoute ? "news" : "projects";
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
 
       this.$nextTick(() => {
+        // Scroll to top on first load
+        window.scrollTo({ top: 0, behavior: "auto" });
+        this.activeSection = "about";
+
         const routeSection = this.sectionFromRoute();
-        if (routeSection) {
+        if (routeSection && routeSection !== "about") {
           this.scrollToSection(routeSection, "auto");
         }
         this.setupSectionObserver();
@@ -114,7 +147,8 @@ export default {
     },
     sectionFromRoute() {
       const section = this.$route.path.replace("/", "");
-      return ["about", "portfolio", "skills", "contact"].includes(section) ? section : null;
+      if (!section) return "about";
+      return ["about", "skills", "projects", "news", "contact"].includes(section) ? section : null;
     },
     setupSectionObserver() {
       const options = {
@@ -122,19 +156,29 @@ export default {
         rootMargin: "-20% 0px -50% 0px",
         threshold: 0
       };
-      
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          this.activeSection = entry.target.id;
 
-          if (this.$router.history.current.path !== `/${entry.target.id}`) {
-            this.$router.push(`/${entry.target.id}`).catch(() => {});
+          if (this.observerTimeout) {
+            clearTimeout(this.observerTimeout);
           }
+
+          this.observerTimeout = setTimeout(() => {
+            const newSection = entry.target.id;
+            if (this.activeSection !== newSection) {
+              this.activeSection = newSection;
+
+              if (this.$router.history.current.path !== `/${newSection}`) {
+                this.$router.push(`/${newSection}`).catch(() => {});
+              }
+            }
+          }, 100);
         });
       }, options);
 
-      const targets = document.querySelectorAll(".scroll-section");
+      const targets = document.querySelectorAll(".content-section");
       targets.forEach((target) => observer.observe(target));
       this.observer = observer;
     },
@@ -143,21 +187,71 @@ export default {
       if (!el) return;
 
       const elementPosition = el.offsetTop;
-      window.scrollTo({ top: elementPosition - 100, behavior });
+      window.scrollTo({ top: Math.max(0, elementPosition - 20), behavior });
       this.activeSection = section;
     },
     scrollTo(ele) {
-      if (ele === "home") {
-        this.$router.push(`/`).catch(() => {});
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        this.activeSection = "about";
-      } else if (ele === "news") {
-        this.$router.push(`/${ele}`).catch(() => {});
-        this.activeSection = ele;
+      this.navigate(ele);
+    },
+    navigate(sectionId) {
+      if (sectionId === "news" || sectionId === "projects") {
+        this.$router.push(`/${sectionId}`).catch(() => {});
+        this.activeSection = sectionId;
       } else {
-        this.scrollToSection(ele);
-        if (this.$router.history.current.path !== `/${ele}`) {
-          this.$router.push(`/${ele}`).catch(() => {});
+        this.scrollToSection(sectionId);
+        if (this.$router.history.current.path !== `/${sectionId}`) {
+          this.$router.push(`/${sectionId}`).catch(() => {});
+        }
+      }
+    },
+    handleScroll() {
+      if (this.isScrolling) return;
+
+      this.isScrolling = true;
+
+      if (this.scrollTimeout) {
+        clearTimeout(this.scrollTimeout);
+      }
+
+      this.scrollTimeout = setTimeout(() => {
+        this.updateActiveSectionFromScroll();
+        this.isScrolling = false;
+      }, 150);
+    },
+    updateActiveSectionFromScroll() {
+      const scrollPosition = window.scrollY;
+
+      // If at top, set to about
+      if (scrollPosition < 150) {
+        if (this.activeSection !== "about") {
+          this.activeSection = "about";
+          if (this.$router.history.current.path !== "/about") {
+            this.$router.push("/about").catch(() => {});
+          }
+        }
+        return;
+      }
+
+      const sections = document.querySelectorAll(".content-section");
+      if (!sections.length) return;
+
+      const viewportMiddle = scrollPosition + window.innerHeight / 3;
+
+      let currentSection = "about";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (viewportMiddle >= sectionTop && viewportMiddle < sectionBottom) {
+          currentSection = section.id;
+        }
+      });
+
+      if (this.activeSection !== currentSection) {
+        this.activeSection = currentSection;
+        if (this.$router.history.current.path !== `/${currentSection}`) {
+          this.$router.push(`/${currentSection}`).catch(() => {});
         }
       }
     }
@@ -166,21 +260,21 @@ export default {
 </script>
 
 <style>
-/* Dark theme variables */
+/* Dark theme variables - clean academic palette */
 .theme-dark {
   --bg: #0b1020;
   --surface: #111827;
   --surface-elevated: #1f2937;
   --border: rgba(255, 255, 255, 0.1);
   --text: #f1f1f5;
-  --text-muted: #cbd5e1;
+  --text-muted: #94a3b8;
   --accent: #22d3ee;
-  --accent-soft: rgba(34, 211, 238, 0.12);
+  --accent-soft: rgba(34, 211, 238, 0.1);
   --accent-hover: #67e8f9;
 }
 
 #app {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg);
@@ -188,57 +282,65 @@ export default {
   min-height: 100vh;
   width: 100%;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+html, body {
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
 }
 
 /* Main layout */
-.app-layout {
+.main-wrapper {
+  margin-left: 320px;
+  width: calc(100% - 320px);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.main-content {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 32px 24px;
   position: relative;
 }
 
-.home-section {
-  padding-top: 110px;
-  padding-bottom: 64px;
+.content-section {
+  padding: 32px 0;
   border-bottom: 1px solid var(--border);
 }
 
-/* Spotlight element */
-.spotlight {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+.content-section:first-of-type {
+  padding-top: 0;
 }
 
-/* Global scroll section spacing */
-.scroll-section {
-  padding: 64px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.scroll-section:last-of-type {
+.content-section:last-of-type {
   border-bottom: none;
+  padding-bottom: 32px;
 }
 
 @media (max-width: 991px) {
-  .app-layout {
-    padding: 0 20px;
+  .main-wrapper {
+    margin-left: 0;
+    width: 100%;
   }
-  
-  .home-section {
-    padding-top: 100px;
-    padding-bottom: 48px;
+
+  .content-wrapper {
+    padding: 24px 16px;
+  }
+
+  .content-section {
+    padding: 24px 0;
   }
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -247,11 +349,7 @@ export default {
 
 ::-webkit-scrollbar-thumb {
   background: var(--surface-elevated);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
 }
 
 /* Tooltips */
@@ -264,60 +362,12 @@ export default {
   background: var(--surface-elevated);
   color: var(--text);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 12px;
-  padding: 6px 10px;
+  padding: 5px 8px;
 }
 
 .tooltip .tooltip-arrow {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  position: absolute;
-  margin: 5px;
-  border-color: var(--surface-elevated);
-  z-index: 1;
-}
-
-.tooltip[x-placement^="top"] {
-  margin-bottom: 8px;
-}
-
-.tooltip[x-placement^="top"] .tooltip-arrow {
-  border-width: 5px 5px 0 5px;
-  border-left-color: transparent !important;
-  border-right-color: transparent !important;
-  border-bottom-color: transparent !important;
-  bottom: -5px;
-  left: calc(50% - 5px);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.tooltip[x-placement^="bottom"] {
-  margin-top: 8px;
-}
-
-.tooltip[x-placement^="bottom"] .tooltip-arrow {
-  border-width: 0 5px 5px 5px;
-  border-left-color: transparent !important;
-  border-right-color: transparent !important;
-  border-top-color: transparent !important;
-  top: -5px;
-  left: calc(50% - 5px);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.tooltip[aria-hidden="true"] {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.25s, visibility 0.25s;
-}
-
-.tooltip[aria-hidden="false"] {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.25s;
+  display: none;
 }
 </style>

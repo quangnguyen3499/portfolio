@@ -1,5 +1,5 @@
 export default {
-  name: "Quang Nguyen Dinh Bao",
+  name: "Quang Nguyen",
   logo_name: "Quang Nguyen",
   title: "Software Engineer",
   email: "ndinhbaoquang@gmail.com",
@@ -8,7 +8,7 @@ export default {
     use_cookies: true,
     navbar: { blur: false },
   },
-  description: `With over 6 years in software development, I specialize in web development, proficient in Python, JavaScript, Django, Flask, VueJS, ReactJS, and ETL technologies. My expertise spans AI development with LLMs, web responsiveness. I have experience with AWS, GCP, and have worked on diverse projects, including e-commerce, HR, computer vision, finance, and AI-powered applications. Continuously researching, I integrate the latest technologies to deliver innovative and effective solutions.`,
+  description: "With 6+ years in web development, AI/LLMs, and data engineering. Skilled in Python, Django, VueJS, ReactJS, and cloud platforms (AWS, GCP). Experienced across fintech, e-commerce, and automation projects.",
   links: {
     linkedin: "https://www.linkedin.com/in/quang-nguyen-513774195",
     github: "https://github.com/quangnguyen3499",
@@ -196,6 +196,81 @@ export default {
       visit: "https://vibecode-car-showroom.vercel.app/",
       description: "An car showroom web app with polished vehicle presentation, showroom-style browsing, and responsive UI patterns."
     },
+  ],
+  projects: [
+    {
+      name: "Banking Data Pipeline Platform",
+      domain: "Fintech",
+      role: "Senior Data Engineer",
+      duration: "Nov 2022 - Present",
+      summary: "Owned architecture and operation of production ELT platform serving 10+ banking partners, managing 200+ Airflow DAGs for multi-TB financial data workflows.",
+      contributions: [
+        "Designed and enforced data validation framework across all pipelines - validating row counts, null rates, value ranges, and business-rule thresholds before every report delivery.",
+        "Integrated 5+ external banking APIs and internal services via Airflow; fully automated report generation and zero-touch delivery.",
+        "Applied TDD throughout pipeline development, maintaining ~90% test coverage on DAG logic; significantly reduced production failures.",
+        "Monitored pipeline health and data freshness with Datadog; owned on-call triage and cross-team escalation for SLA-critical runs.",
+        "Deployed and maintained containerized pipeline services on AWS ECS/ECR; managed Kafka event streams between upstream sources and data warehouse."
+      ],
+      impact: "Prevented bad data from reaching client dashboards in regulated financial environment; eliminated manual handoffs across all active partners.",
+      technologies: ["Python", "Airflow", "Snowflake", "Kafka", "AWS ECS/ECR", "Docker", "Datadog", "Pandas", "SQL", "Jinja2"]
+    },
+    {
+      name: "Automation & Client-Portal Integration Platform",
+      domain: "Enterprise ERP",
+      role: "Senior Data / Integration Engineer",
+      duration: "Nov 2022 - Present",
+      summary: "Architected serverless, event-driven integration platform on AWS Lambda + SQS connecting internal field-service ERP to work-order portals of multiple enterprise clients.",
+      contributions: [
+        "Built per-client API adapters supporting Token/Bearer/Basic/NTLM auth, backed by resilient exponential-backoff retry pipeline that self-heals transient failures.",
+        "Implemented AI-assisted extraction and normalisation of messy free-text ERP fields (multi-PO references, malformed dates/times) to handle dirty real-world data at scale.",
+        "Developed Google Maps geofencing module validating technician on-site presence before job sign-off, reducing invalid completions.",
+        "Automated cross-system workflows using n8n, orchestrating status syncs, notifications, and conditional routing across full job lifecycle without custom code per case."
+      ],
+      impact: "Delivered estimated $20,000 - $30,000/month in savings by eliminating manual portal entry; reduced manual effort by 70-80% across targeted modules.",
+      technologies: ["Python", "AWS Lambda", "SQS", "SES", "Secrets Manager", "n8n", "Google Maps API", "SQL", "boto3"]
+    },
+    {
+      name: "AI Chat Widget Platform",
+      domain: "SaaS",
+      role: "Backend Engineer",
+      duration: "Nov 2022 - Present",
+      summary: "Developed production-grade AI chatbot platform using FastAPI and WebSockets, enabling real-time conversations with GPT-powered assistants for customer engagement.",
+      contributions: [
+        "Designed asynchronous processing pipelines using Celery and Redis for background task execution, scheduled synchronization, and integration with external platforms.",
+        "Built Retrieval-Augmented Generation (RAG) workflows using LangChain and OpenAI models to deliver context-aware responses from business knowledge sources.",
+        "Deployed containerized services on AWS ECS with CloudWatch monitoring while maintaining automated CI/CD pipelines and production reliability."
+      ],
+      impact: "Enabled real-time AI-powered customer engagement with context-aware responses from business knowledge sources.",
+      technologies: ["Python", "FastAPI", "LangChain", "OpenAI", "Celery", "Redis", "PostgreSQL", "Docker", "AWS ECS"]
+    },
+    {
+      name: "Financial Loan Management Platform",
+      domain: "Fintech",
+      role: "Backend Engineer",
+      duration: "Apr 2022 - Oct 2022",
+      summary: "Developed backend services and RESTful APIs for high-volume financial loan management platform, implementing business workflows, validation rules, and secure transaction processing.",
+      contributions: [
+        "Built asynchronous service communication using Apache Kafka and gRPC, enabling reliable data exchange between distributed microservices and improving system scalability.",
+        "Designed and optimized PostgreSQL queries supporting loan processing, reporting, and operational analytics while improving application performance.",
+        "Collaborated with frontend engineers, QA, and product stakeholders in Agile environment to deliver production-ready features with high code quality and automated testing."
+      ],
+      impact: "Improved system scalability and application performance through optimized database queries and reliable microservice communication.",
+      technologies: ["Python", "Django", "PostgreSQL", "Apache Kafka", "gRPC", "REST APIs", "pytest"]
+    },
+    {
+      name: "HR Evaluation & Analytics Platform",
+      domain: "Enterprise HR",
+      role: "Backend Engineer",
+      duration: "Jan 2020 - Mar 2022",
+      summary: "Developed backend features for enterprise HR evaluation and performance management platform serving corporate customers.",
+      contributions: [
+        "Designed and implemented RESTful APIs, relational database models, and business logic using Ruby on Rails and Python.",
+        "Built scheduled crawling pipelines and integrated Google Cloud Vision OCR to automate document digitization and structured data extraction.",
+        "Contributed to approximately 95% automated test coverage, helping maintain application stability and supporting reliable production releases."
+      ],
+      impact: "Reduced manual processing through automated document digitization; maintained high application stability with comprehensive test coverage.",
+      technologies: ["Python", "Ruby on Rails", "Django", "PostgreSQL", "MySQL", "VueJS", "Google OCR", "REST APIs"]
+    }
   ],
   blogs: [
     {

@@ -1,5 +1,5 @@
 let info = {
-  name: "Quang Nguyen Dinh Bao",
+  name: "Quang Nguyen",
   logo_name: "Quang Nguyen",
   flat_picture: require("./src/assets/me.png"),
   config: {

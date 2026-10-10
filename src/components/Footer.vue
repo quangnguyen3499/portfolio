@@ -1,17 +1,15 @@
 <template>
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-row">
-        <span class="footer-name">{{ name }}</span>
-        <span class="footer-sep">·</span>
-        <span class="footer-title">{{ title }}</span>
-      </div>
+      <span class="footer-copy">&copy; {{ currentYear }} {{ name }}</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-title">{{ title }}</span>
+      <span class="footer-sep">·</span>
       <div class="footer-links">
-        <a :href="`mailto:${email}`" class="footer-link" aria-label="Email">Email</a>
-        <a :href="links.linkedin" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn">LinkedIn</a>
-        <a :href="links.github" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub">GitHub</a>
+        <a :href="`mailto:${email}`" class="footer-link">Email</a>
+        <a :href="links.linkedin" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+        <a :href="links.github" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
       </div>
-      <p class="footer-copy">&copy; {{ currentYear }} {{ name }}</p>
     </div>
   </footer>
 </template>
@@ -34,31 +32,30 @@ export default {
 
 <style scoped>
 .footer {
-  background: var(--surface-elevated);
+  background: transparent;
   border-top: 1px solid var(--border);
-  padding: 32px 0;
+  padding: 14px 0;
 }
 
 .footer-inner {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0 24px;
-  text-align: center;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
-.footer-row {
-  font-size: 0.95rem;
-  margin-bottom: 12px;
-}
-
-.footer-name {
-  font-weight: 600;
-  color: var(--text);
+.footer-copy {
+  color: var(--text-muted);
 }
 
 .footer-sep {
-  color: var(--text-muted);
-  margin: 0 8px;
+  color: var(--border);
 }
 
 .footer-title {
@@ -67,26 +64,17 @@ export default {
 
 .footer-links {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 16px;
+  align-items: center;
+  gap: 12px;
 }
 
 .footer-link {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .footer-link:hover {
   color: var(--accent);
-}
-
-.footer-copy {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  opacity: 0.8;
-  margin: 0;
 }
 </style>

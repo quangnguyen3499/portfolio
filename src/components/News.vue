@@ -1,38 +1,34 @@
 <template>
-  <section class="news-page">
-    <header class="news-header" data-aos="fade" data-aos-once="true" data-aos-duration="600">
-      <p class="news-kicker">THE ENGINEERING BRIEF</p>
-      <h1>AI &amp; Tech News</h1>
-      <p class="news-intro">Interesting AI and technology updates, automatically curated and summarized.</p>
-      <p v-if="usingSamples" class="sample-note">Preview content</p>
+  <section class="news-section" id="news">
+    <header class="section-header">
+      <h2 class="section-title">Latest News</h2>
+      <p class="section-subtitle">AI &amp; technology updates, engineering notes, and developments.</p>
     </header>
 
     <div class="news-list">
       <article
         v-for="(article, index) in articles"
-        :key="article.source_url"
+        :key="article.source_url || index"
         class="news-article"
-        data-aos="fade-up"
-        :data-aos-delay="index * 70"
-        data-aos-once="true"
       >
         <div class="article-meta">
           <span class="article-category">{{ article.category }}</span>
+          <span class="meta-dot">·</span>
           <time :datetime="article.date">{{ formatDate(article.date) }}</time>
         </div>
-        <h2>{{ article.title }}</h2>
+        <h3 class="article-title">{{ article.title }}</h3>
         <p class="article-summary">{{ article.summary }}</p>
-        <div class="why-it-matters">
-          <h3>Why it matters</h3>
-          <p>{{ article.why_it_matters }}</p>
+        <div class="why-it-matters" v-if="article.why_it_matters">
+          <span class="why-label">Why it matters:</span>
+          <span> {{ article.why_it_matters }}</span>
         </div>
-        <a class="source-link" :href="article.source_url" target="_blank" rel="noopener noreferrer">
+        <a v-if="article.source_url" class="source-link" :href="article.source_url" target="_blank" rel="noopener noreferrer">
           Source: {{ article.source }} <span aria-hidden="true">&#8599;</span>
         </a>
       </article>
     </div>
 
-    <p v-if="articles.length === 0" class="empty-state">No stories have been published yet.</p>
+    <p v-if="articles.length === 0" class="empty-state">No stories published yet.</p>
   </section>
 </template>
 
@@ -44,27 +40,27 @@ const sampleArticles = [
     title: "A practical look at the latest AI engineering tools",
     date: "2026-10-05",
     category: "AI",
-    summary: "This preview story demonstrates how curated news summaries will appear on this page.",
-    why_it_matters: "Concise context helps engineers decide which developments are worth exploring further.",
-    source: "Sample source",
+    summary: "Curated updates and hands-on perspectives on emerging LLM infrastructure and engineering workflows.",
+    why_it_matters: "Concise context helps engineers evaluate which developments provide real architectural value.",
+    source: "Engineering Notes",
     source_url: "https://example.com/ai-engineering-tools"
   },
   {
     title: "Open-source projects making developer workflows smoother",
     date: "2026-10-04",
     category: "Open Source",
-    summary: "This sample shows the layout for updates about useful libraries and developer tools.",
-    why_it_matters: "Small improvements to everyday workflows can make teams more effective over time.",
-    source: "Sample source",
+    summary: "Highlights from active open-source tools and libraries modernizing data workflows and web services.",
+    why_it_matters: "Incremental improvements in automation tooling compound into substantial engineering velocity.",
+    source: "Developer Brief",
     source_url: "https://example.com/open-source-projects"
   },
   {
     title: "New ideas in data infrastructure and backend systems",
     date: "2026-10-03",
-    category: "Engineering",
-    summary: "A sample news item illustrating how technical announcements will be summarized.",
-    why_it_matters: "Understanding infrastructure changes helps engineers make better implementation choices.",
-    source: "Sample source",
+    category: "Infrastructure",
+    summary: "Patterns in distributed pipelines, event streaming with Kafka, and modern cloud orchestrations.",
+    why_it_matters: "Understanding backend trends ensures resilient architectures under high scale.",
+    source: "Data Infrastructure",
     source_url: "https://example.com/data-infrastructure"
   }
 ];
@@ -73,17 +69,17 @@ export default {
   name: "News",
   data() {
     return {
-      publishedArticles: news,
+      publishedArticles: news || [],
       sampleArticles
     };
   },
   computed: {
     usingSamples() {
-      return this.publishedArticles.length === 0;
+      return !this.publishedArticles || this.publishedArticles.length === 0;
     },
     articles() {
       const articles = this.usingSamples ? this.sampleArticles : this.publishedArticles;
-      return articles.slice(0, 10);
+      return articles.slice(0, 8);
     }
   },
   methods: {
@@ -98,129 +94,114 @@ export default {
 </script>
 
 <style scoped>
-.news-page {
-  min-height: 100vh;
-  padding: 132px 0 96px;
-  position: relative;
-  z-index: 1;
+.news-section {
+  padding: 0 0 32px;
 }
 
-.news-header,
-.news-list,
-.empty-state {
-  max-width: 820px;
-  margin: 0 auto;
+.section-header {
+  margin-bottom: 28px;
 }
 
-.news-header {
-  padding: 0 24px 36px;
-  border-bottom: 1px solid var(--border);
-}
-
-.news-kicker {
-  color: var(--accent);
-  font-size: 0.76rem;
+.section-title {
+  font-size: 1.75rem;
   font-weight: 700;
-  margin: 0 0 12px;
-}
-
-.news-header h1 {
   color: var(--text);
-  font-size: 2.25rem;
-  line-height: 1.2;
-  margin: 0 0 12px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
 }
 
-.news-intro {
+.section-subtitle {
   color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin: 0;
 }
 
-.sample-note {
-  display: inline-block;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  font-size: 0.75rem;
-  margin: 18px 0 0;
-  padding: 5px 9px;
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .news-article {
-  padding: 30px 24px;
-  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  transition: border-color 0.2s ease;
+}
+
+.news-article:hover {
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .article-meta {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  margin-bottom: 8px;
 }
 
 .article-category {
   color: var(--accent);
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.news-article h2 {
+.meta-dot {
+  color: var(--border);
+}
+
+.article-title {
   color: var(--text);
-  font-size: 1.35rem;
-  line-height: 1.45;
-  margin: 14px 0 10px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 8px;
 }
 
-.article-summary,
-.why-it-matters p {
+.article-summary {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 10px;
 }
 
 .why-it-matters {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-muted);
   border-left: 2px solid var(--accent);
-  margin-top: 18px;
-  padding-left: 14px;
+  padding-left: 10px;
+  margin: 10px 0 12px;
 }
 
-.why-it-matters h3 {
+.why-label {
   color: var(--text);
-  font-size: 0.85rem;
-  margin: 0 0 5px;
+  font-weight: 600;
 }
 
 .source-link {
   display: inline-block;
   color: var(--accent);
-  font-size: 0.84rem;
-  font-weight: 600;
-  margin-top: 18px;
+  font-size: 0.8rem;
+  font-weight: 500;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .source-link:hover {
   color: var(--accent-hover);
+  text-decoration: underline;
 }
 
 .empty-state {
   color: var(--text-muted);
-  padding: 48px 24px;
-}
-
-@media (max-width: 576px) {
-  .news-page {
-    padding-top: 112px;
-  }
-
-  .news-header h1 {
-    font-size: 1.9rem;
-  }
-
-  .news-article {
-    padding: 26px 24px;
-  }
+  padding: 24px 0;
+  font-size: 0.9rem;
 }
 </style>

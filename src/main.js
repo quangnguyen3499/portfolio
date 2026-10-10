@@ -19,10 +19,12 @@ Vue.use(VueParallaxJs)
 Vue.config.productionTip = false
 
 const routes = [
-  { path: '/' },
+  { path: '/', redirect: '/news' },
+  { path: '/home' },
   { path: '/about' },
   { path: '/portfolio' },
   { path: '/skills' },
+  { path: '/projects' },
   { path: '/contact' },
   { path: '/news' }
 ]
@@ -34,7 +36,9 @@ const router = new VueRouter({
 
 new Vue({
   created () {
-    AOS.init()
+    AOS.init({
+      disable: true
+    })
   },
   router,
   render: h => h(App),

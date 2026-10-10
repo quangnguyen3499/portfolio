@@ -1,38 +1,37 @@
 <template>
-  <section class="contact" id="contact">
-    <div class="section-inner">
-      <header class="section-header" data-aos="fade" data-aos-once="true" data-aos-duration="600">
-        <h2 class="section-title">Get in Touch</h2>
-      </header>
-      <div class="contact-layout">
-        <div class="contact-direct" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
-          <a :href="`mailto:${contactEmail}`" class="contact-link">
-            <i class="fa fa-envelope"></i>
-            <span>{{ contactEmail }}</span>
-          </a>
-        </div>
-        <form class="contact-form" @submit.prevent="sendEmail" data-aos="fade-up" data-aos-once="true" data-aos-duration="500" data-aos-delay="80">
-          <div class="form-group">
-            <input type="text" v-model="name" placeholder="Your name" class="form-input" />
-          </div>
-          <div class="form-group">
-            <input type="email" v-model="email" placeholder="Your email" class="form-input" />
-          </div>
-          <div class="form-group">
-            <textarea v-model="text" placeholder="Your message" class="form-input form-textarea" rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn-submit" :disabled="isSending">
-            {{ isSending ? "Sending…" : "Send message" }}
-          </button>
-        </form>
+  <section class="contact-section" id="contact">
+    <header class="section-header">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Send a direct message or reach out via email.</p>
+    </header>
+    <div class="contact-layout">
+      <div class="contact-direct">
+        <a :href="`mailto:${contactEmail}`" class="contact-link">
+          <i class="fa fa-envelope"></i>
+          <span>{{ contactEmail }}</span>
+        </a>
       </div>
-      <Snackbar
-        :showSnackbar="showSnackbar"
-        @close="closeSnackbar"
-        :snackbarMessage="snackbarMessage"
-        :snackbarColor="snackbarColor"
-      />
+      <form class="contact-form" @submit.prevent="sendEmail">
+        <div class="form-group">
+          <input type="text" v-model="name" placeholder="Your name" class="form-input" />
+        </div>
+        <div class="form-group">
+          <input type="email" v-model="email" placeholder="Your email" class="form-input" />
+        </div>
+        <div class="form-group">
+          <textarea v-model="text" placeholder="Your message" class="form-input form-textarea" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" :disabled="isSending">
+          {{ isSending ? "Sending…" : "Send message" }}
+        </button>
+      </form>
     </div>
+    <Snackbar
+      :showSnackbar="showSnackbar"
+      @close="closeSnackbar"
+      :snackbarMessage="snackbarMessage"
+      :snackbarColor="snackbarColor"
+    />
   </section>
 </template>
 
@@ -81,14 +80,14 @@ export default {
 
       emailjs
         .send(
-          process.env.VUE_APP_EMAILJS_SERVICE_ID, // Use environment variable
-          process.env.VUE_APP_EMAILJS_TEMPLATE_ID, // Use environment variable
+          process.env.VUE_APP_EMAILJS_SERVICE_ID,
+          process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
           {
             name: trimmedName,
             email: trimmedEmail,
             message: trimmedText,
           },
-          process.env.VUE_APP_EMAILJS_USER_ID // Use environment variable
+          process.env.VUE_APP_EMAILJS_USER_ID
         )
         .then(() => {
           this.showSnackbar = true;
@@ -114,46 +113,41 @@ export default {
 </script>
 
 <style scoped>
-.contact {
-  padding: 80px 0;
-  background: var(--surface);
-}
-
-.section-inner {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 24px;
+.contact-section {
+  padding: 0 0 32px;
 }
 
 .section-header {
-  text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
 }
 
 .section-subtitle {
-  font-size: 1rem;
   color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .contact-layout {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
+  max-width: 600px;
 }
 
 .contact-direct {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  gap: 12px;
 }
 
 .contact-link {
@@ -162,17 +156,17 @@ export default {
   gap: 10px;
   color: var(--text);
   text-decoration: none;
-  font-size: 0.95rem;
-  padding: 10px 16px;
-  background: var(--surface-elevated);
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 6px;
   transition: border-color 0.2s, color 0.2s;
 }
 
 .contact-link:hover {
   color: var(--accent);
-  border-color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .contact-link i {
@@ -182,7 +176,7 @@ export default {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .form-group {
@@ -191,14 +185,15 @@ export default {
 
 .form-input {
   width: 100%;
-  padding: 14px 18px;
-  font-size: 1rem;
+  padding: 12px 14px;
+  font-size: 0.92rem;
   font-family: inherit;
   color: var(--text);
-  background: var(--surface-elevated);
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
 }
 
 .form-input::placeholder {
@@ -209,38 +204,33 @@ export default {
 .form-input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .form-textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 110px;
 }
 
 .btn-submit {
-  padding: 14px 24px;
-  font-size: 1rem;
+  align-self: flex-start;
+  padding: 11px 22px;
+  font-size: 0.9rem;
   font-weight: 600;
   font-family: inherit;
   color: var(--bg);
   background: var(--accent);
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition: opacity 0.2s;
 }
 
 .btn-submit:hover:not(:disabled) {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
 .btn-submit:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-.btn-submit:focus {
-  outline: none;
 }
 </style>

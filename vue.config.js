@@ -8,5 +8,8 @@ module.exports = {
             .test(/\.md$/)
             .use("local-markdown-loader")
             .loader(path.resolve(__dirname, "build/markdown-loader.js"));
+    },
+    devServer: {
+        historyApiFallback: true
     }
 }
